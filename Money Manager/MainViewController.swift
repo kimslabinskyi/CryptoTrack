@@ -11,25 +11,52 @@ import Charts
 class MainViewController: UIViewController {
 
     @IBOutlet weak var firstBarChart: BarChartView!
-    var cryptocurrenciesDataBase = CryptocurrencyRate(prices: [])
+    @IBOutlet weak var secondBarChart: BarChartView!
+    var bitcoinDataBase = CryptocurrencyRate(prices: [])
+    var ethereumDataBase = CryptocurrencyRate(prices: [])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.eth) { [weak self] jsonResponse, arg in
+      setUp()
+        
+    }
+    
+    func setUp(){
+        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.btc) { [weak self] jsonResponse, arg in
             guard let self = self else { return }
             
             if let response = jsonResponse {
-                self.cryptocurrenciesDataBase = response
+                self.bitcoinDataBase = response
                 print(response)
                 
                 initFirstBarChart()
             }
         }
+        
+        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.eth) { [ weak self ] jsonResponse, arg in
+            guard let self = self else { return }
+            
+            if let response = jsonResponse {
+                self.ethereumDataBase = response
+                
+                initSecondBarChart()
+            }
+            
+        }
+        
+        firstBarChart.scaleXEnabled = false
+        firstBarChart.scaleYEnabled = false
+        firstBarChart.pinchZoomEnabled = false
+        firstBarChart.pinchZoomEnabled = false
+        firstBarChart.doubleTapToZoomEnabled = false
+        firstBarChart.dragEnabled = false
+        
     }
     
     func initFirstBarChart(){
         var entries = [BarChartDataEntry]()
         
-        for (index, priceData) in cryptocurrenciesDataBase.prices.enumerated(){
+        for (index, priceData) in bitcoinDataBase.prices.enumerated(){
             let price = round(priceData[1])
             entries.append(BarChartDataEntry(x: Double(index), y: price))
         }
@@ -45,6 +72,27 @@ class MainViewController: UIViewController {
         firstBarChart.leftAxis.drawGridLinesEnabled = false
         firstBarChart.rightAxis.enabled = false
         firstBarChart.animate(yAxisDuration: 1.0)
+    }
+    
+    func initSecondBarChart(){
+        var entries = [BarChartDataEntry]()
+        
+        for (index, priceData) in ethereumDataBase.prices.enumerated(){
+            let price = round(priceData[1])
+            entries.append(BarChartDataEntry(x: Double(index), y: price))
+        }
+        
+        let dataSet = BarChartDataSet(entries: entries, label: "Eth")
+        dataSet.colors = [UIColor.blue]
+        
+        let data = BarChartData(dataSet: dataSet)
+        secondBarChart.data = data
+        
+        secondBarChart.xAxis.labelPosition = .bottom
+        secondBarChart.xAxis.drawGridLinesEnabled = false
+        secondBarChart.leftAxis.drawGridLinesEnabled = false
+        secondBarChart.rightAxis.enabled = false
+        secondBarChart.animate(yAxisDuration: 1.0)
     }
     
     
