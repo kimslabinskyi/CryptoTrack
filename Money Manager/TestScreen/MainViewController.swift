@@ -8,30 +8,49 @@
 import UIKit
 import Charts 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet weak var firstBarChart: BarChartView!
     @IBOutlet weak var secondBarChart: BarChartView!
+    
+    @IBOutlet weak var firstView: UIView!
     var bitcoinDataBase = CryptocurrencyRate(prices: [])
     var ethereumDataBase = CryptocurrencyRate(prices: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      setUp()
-        
+        setUpFirstChart()
+            
     }
     
-    func setUp(){
-        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.btc) { [weak self] jsonResponse, arg in
-            guard let self = self else { return }
-            
-            if let response = jsonResponse {
-                self.bitcoinDataBase = response
-                print(response)
-                
-                initFirstBarChart()
-            }
+    func setUpFirstChart(){
+//        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.btc) { [weak self] jsonResponse, arg in
+//            guard let self = self else { return }
+//            
+//            if let response = jsonResponse {
+//                self.bitcoinDataBase = response
+//                print(response)
+//                
+//                initFirstBarChart()
+//                setUpSecondChart()
+//            }
+//        }
+        firstBarChart.delegate = self
+
+        firstBarChart.scaleXEnabled = false
+        firstBarChart.scaleYEnabled = false
+        firstBarChart.pinchZoomEnabled = false
+        firstBarChart.pinchZoomEnabled = false
+        firstBarChart.doubleTapToZoomEnabled = false
+        firstBarChart.dragEnabled = false
+        
+        firstView.layer.cornerRadius = 5
+        if let superView = firstView.superview {
+            superView.sendSubviewToBack(firstView)
         }
+    }
+    
+    func setUpSecondChart(){
         
         NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.eth) { [ weak self ] jsonResponse, arg in
             guard let self = self else { return }
@@ -43,13 +62,8 @@ class MainViewController: UIViewController {
             }
             
         }
+        secondBarChart.delegate = self
         
-        firstBarChart.scaleXEnabled = false
-        firstBarChart.scaleYEnabled = false
-        firstBarChart.pinchZoomEnabled = false
-        firstBarChart.pinchZoomEnabled = false
-        firstBarChart.doubleTapToZoomEnabled = false
-        firstBarChart.dragEnabled = false
         
     }
     
@@ -95,8 +109,9 @@ class MainViewController: UIViewController {
         secondBarChart.animate(yAxisDuration: 1.0)
     }
     
-    
-
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
+        print("Selected value: \(entry.y)")
+    }
 
 }
 
