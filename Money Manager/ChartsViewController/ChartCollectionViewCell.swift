@@ -9,4 +9,7 @@ import UIKit
 
 class ChartCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var CryptocurrencyLabel: UILabel!
+    
+    
 }
