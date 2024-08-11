@@ -14,6 +14,7 @@
 		3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53D72C5CD92600A3097D /* Assets.xcassets */; };
 		3B4D53DB2C5CD92600A3097D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53DA2C5CD92600A3097D /* Base */; };
 		3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */; };
+		3BE2BA5E2C6763C000C49112 /* RoundedBarChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2BA5D2C6763C000C49112 /* RoundedBarChartRenderer.swift */; };
 		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
 		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
 		CCC6B965BD56FF813B623B77 /* Pods_Money_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5975A3FA9CD2A4C683EA60D /* Pods_Money_Manager.framework */; };
@@ -29,6 +30,7 @@
 		3B4D53DA2C5CD92600A3097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4D53DC2C5CD92600A3097D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		3BE2BA5D2C6763C000C49112 /* RoundedBarChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBarChartRenderer.swift; sourceTree = "<group>"; };
 		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money Manager.release.xcconfig"; path = "Target Support Files/Pods-Money Manager/Pods-Money Manager.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */,
 				3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */,
+				3BE2BA5D2C6763C000C49112 /* RoundedBarChartRenderer.swift */,
 			);
 			path = ChartsViewController;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE2BA5E2C6763C000C49112 /* RoundedBarChartRenderer.swift in Sources */,
 				3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */,
 				3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */,
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,

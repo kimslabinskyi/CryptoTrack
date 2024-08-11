@@ -13,7 +13,6 @@ class MainViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var firstBarChart: BarChartView!
     @IBOutlet weak var secondBarChart: BarChartView!
     
-    @IBOutlet weak var firstView: UIView!
     var bitcoinDataBase = CryptocurrencyRate(prices: [])
     var ethereumDataBase = CryptocurrencyRate(prices: [])
     
@@ -44,10 +43,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
         firstBarChart.doubleTapToZoomEnabled = false
         firstBarChart.dragEnabled = false
         
-        firstView.layer.cornerRadius = 5
-        if let superView = firstView.superview {
-            superView.sendSubviewToBack(firstView)
-        }
+        
     }
     
     func setUpSecondChart(){

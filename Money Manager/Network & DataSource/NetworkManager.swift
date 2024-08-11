@@ -22,7 +22,7 @@ class NetworkManager{
         
         let parameters: Parameters = [
             "vs_currency": "usd",
-            "days": "30!",
+            "days": "30",
             "interval": "daily"
         ]
         

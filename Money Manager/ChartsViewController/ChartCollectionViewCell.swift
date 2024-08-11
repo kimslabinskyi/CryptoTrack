@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import Charts
 
 class ChartCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var centralBarView: BarChartView!
+
+    @IBOutlet weak var cryptocurrencyNameLabel: UILabel!
+    @IBOutlet weak var cryptocurrencyRateLabel: UILabel!
     
-    @IBOutlet weak var CryptocurrencyLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var highestLabel: UILabel!
+    @IBOutlet weak var lowestLabel: UILabel!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
 }
