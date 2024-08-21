@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum CryptoCurrencyType {
     case btc
     case eth

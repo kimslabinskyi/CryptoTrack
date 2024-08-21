@@ -8,16 +8,24 @@
 import Foundation
 import Alamofire
 
+struct CryptocurrencyRate: Codable {
+    let prices: [[Double]]
+
+    enum CodingKeys: String, CodingKey {
+        case prices
+    }
+}
+
 class NetworkManager{
+    
     static let shared = NetworkManager()
     
-    func getCryptocurrencyRate(_ cryptocurrency: Cryptocurrency, _ completion: @escaping (CryptocurrencyRate?, Error?) -> ()) {
+    private init() {}
+    
+    func getCryptocurrencyRate(_ cryptocurrency: CryptoCurrencyType, _ completion: @escaping (CryptocurrencyRate?, Error?) -> ()) {
         
-        var url: String = ""
-        if cryptocurrency == Cryptocurrency.btc {
-            url = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"
-        } else if cryptocurrency == Cryptocurrency.eth{
-            url = "https://api.coingecko.com/api/v3/coins/ethereum/market_chart"
+        guard let url = cryptocurrency.url else {
+            fatalError()
         }
         
         let parameters: Parameters = [
@@ -44,29 +52,8 @@ class NetworkManager{
         
     }
     
-    
-    
-    
 }
 
 
-struct CryptocurrencyRate: Codable {
-    let prices: [[Double]]
 
-    enum CodingKeys: String, CodingKey {
-        case prices
-    }
-}
 
-enum Cryptocurrency {
-    case btc
-    case eth
-    case bnb
-    case xrp
-    case ada
-    case sol
-    case dot
-    case doge
-    case ltc
-    case busd
-}

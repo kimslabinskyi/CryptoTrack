@@ -10,7 +10,7 @@ import Charts
 
 class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var centralBarView: BarChartView!
-
+    
     @IBOutlet weak var cryptocurrencyNameLabel: UILabel!
     @IBOutlet weak var cryptocurrencyRateLabel: UILabel!
     
@@ -20,6 +20,16 @@ class ChartCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        centralBarView.isUserInteractionEnabled = true
+        
+        centralBarView.scaleXEnabled = false
+        centralBarView.scaleYEnabled = false
+        centralBarView.pinchZoomEnabled = false
+        centralBarView.pinchZoomEnabled = false
+        centralBarView.doubleTapToZoomEnabled = false
+        centralBarView.dragEnabled = false
+        centralBarView.xAxis.drawLabelsEnabled = false
         
     }
 }

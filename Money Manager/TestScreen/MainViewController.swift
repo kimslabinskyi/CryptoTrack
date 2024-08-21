@@ -48,7 +48,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
     
     func setUpSecondChart(){
         
-        NetworkManager.shared.getCryptocurrencyRate(Cryptocurrency.eth) { [ weak self ] jsonResponse, arg in
+        NetworkManager.shared.getCryptocurrencyRate(CryptoCurrencyType.eth) { [ weak self ] jsonResponse, arg in
             guard let self = self else { return }
             
             if let response = jsonResponse {
