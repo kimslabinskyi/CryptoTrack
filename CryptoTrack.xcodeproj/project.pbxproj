@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B4D53CB2C5CD92400A3097D /* Money Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Money Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B4D53D22C5CD92400A3097D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		3B4D53CC2C5CD92400A3097D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B4D53CB2C5CD92400A3097D /* Money Manager.app */,
+				3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B4D53CA2C5CD92400A3097D /* Money Manager */ = {
+		3B4D53CA2C5CD92400A3097D /* CryptoTrack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "Money Manager" */;
+			buildConfigurationList = 3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "CryptoTrack" */;
 			buildPhases = (
 				6D7FCC53F24D2F5C947AEC50 /* [CP] Check Pods Manifest.lock */,
 				3B4D53C72C5CD92400A3097D /* Sources */,
@@ -150,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = "Money Manager";
+			name = CryptoTrack;
 			productName = "Money Manager";
-			productReference = 3B4D53CB2C5CD92400A3097D /* Money Manager.app */;
+			productReference = 3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3B4D53C62C5CD92400A3097D /* Build configuration list for PBXProject "Money Manager" */;
+			buildConfigurationList = 3B4D53C62C5CD92400A3097D /* Build configuration list for PBXProject "CryptoTrack" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B4D53CA2C5CD92400A3097D /* Money Manager */,
+				3B4D53CA2C5CD92400A3097D /* CryptoTrack */,
 			);
 		};
 /* End PBXProject section */
@@ -462,7 +462,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B4D53C62C5CD92400A3097D /* Build configuration list for PBXProject "Money Manager" */ = {
+		3B4D53C62C5CD92400A3097D /* Build configuration list for PBXProject "CryptoTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B4D53DD2C5CD92600A3097D /* Debug */,
@@ -471,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "Money Manager" */ = {
+		3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "CryptoTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B4D53E02C5CD92600A3097D /* Debug */,

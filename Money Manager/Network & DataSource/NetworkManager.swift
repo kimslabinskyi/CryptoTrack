@@ -40,6 +40,7 @@ class NetworkManager{
                           do {
                               let marketChartData = try JSONDecoder().decode(CryptocurrencyRate.self, from: data)
                               completion(marketChartData, nil)
+                              print(response)
 
                 } catch {
                     completion(nil, error)

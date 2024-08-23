@@ -31,5 +31,20 @@ class ChartCollectionViewCell: UICollectionViewCell {
         centralBarView.dragEnabled = false
         centralBarView.xAxis.drawLabelsEnabled = false
         
+        centralBarView.scaleXEnabled = false
+        centralBarView.scaleYEnabled = false
+        centralBarView.pinchZoomEnabled = false
+        centralBarView.pinchZoomEnabled = false
+        centralBarView.doubleTapToZoomEnabled = false
+        centralBarView.dragEnabled = false
+        centralBarView.xAxis.drawLabelsEnabled = false
+
+        
+        centralBarView.xAxis.labelPosition = .bottom
+        centralBarView.xAxis.drawGridLinesEnabled = false
+        centralBarView.leftAxis.drawGridLinesEnabled = false
+        centralBarView.rightAxis.enabled = false
+        centralBarView.animate(yAxisDuration: 1.0)
+        
     }
 }
