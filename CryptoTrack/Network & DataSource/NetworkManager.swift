@@ -22,9 +22,13 @@ class NetworkManager{
     
     private init() {}
     
-    func getCryptocurrencyRate(_ cryptocurrency: CryptoCurrencyType, _ completion: @escaping (CryptocurrencyRate?, Error?) -> ()) {
+    func getCryptocurrencyRate(_ cryptocurrency: CryptoCurrencyType, _ completion: @escaping (String?, CryptocurrencyRate?, Error?) -> ()) {
         
         guard let url = cryptocurrency.url else {
+            fatalError()
+        }
+        
+        guard let name = cryptocurrency.name else {
             fatalError()
         }
         
@@ -39,14 +43,14 @@ class NetworkManager{
             case .success(let data):
                           do {
                               let marketChartData = try JSONDecoder().decode(CryptocurrencyRate.self, from: data)
-                              completion(marketChartData, nil)
+                              completion(name, marketChartData, nil)
                               print(response)
 
                 } catch {
-                    completion(nil, error)
+                    completion(nil, nil, error)
                 }
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, nil, error)
             }
             
         }

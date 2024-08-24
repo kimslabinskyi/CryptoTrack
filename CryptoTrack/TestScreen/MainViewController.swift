@@ -46,22 +46,22 @@ class MainViewController: UIViewController, ChartViewDelegate {
         
     }
     
-    func setUpSecondChart(){
-        
-        NetworkManager.shared.getCryptocurrencyRate(CryptoCurrencyType.eth) { [ weak self ] jsonResponse, arg in
-            guard let self = self else { return }
-            
-            if let response = jsonResponse {
-                self.ethereumDataBase = response
-                
-                initSecondBarChart()
-            }
-            
-        }
-        secondBarChart.delegate = self
-        
-        
-    }
+//    func setUpSecondChart(){
+//        
+//        NetworkManager.shared.getCryptocurrencyRate(CryptoCurrencyType.eth) { [ weak self ] jsonResponse, arg in
+//            guard let self = self else { return }
+//            
+//            if let response = jsonResponse {
+//                self.ethereumDataBase = response
+//                
+//                initSecondBarChart()
+//            }
+//            
+//        }
+//        secondBarChart.delegate = self
+//        
+//        
+//    }
     
     func initFirstBarChart(){
         var entries = [BarChartDataEntry]()

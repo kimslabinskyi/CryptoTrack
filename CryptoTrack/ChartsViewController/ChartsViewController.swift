@@ -17,13 +17,14 @@ struct CellData {
     var highestValue: Int
     var lowestValue: Int
     var currencyRate: Int
+    var currencyName: String
 }
 
 class ChartsViewController: UIViewController, ChartViewDelegate {
     
     var cellDataArray: [CellData] = [
-        CellData(typeOfCell: .btc, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0),
-        CellData(typeOfCell: .eth, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0)
+        CellData(typeOfCell: .btc, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0, currencyName: ""),
+        CellData(typeOfCell: .eth, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0, currencyName: "")
     ]
     var hasErrorOccurred = false
     
@@ -47,9 +48,12 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         let dispatchGroup = DispatchGroup()
         for (index, cellData) in cellDataArray.enumerated() {
             dispatchGroup.enter()
-            NetworkManager.shared.getCryptocurrencyRate(cellData.typeOfCell) { [weak self] jsonResponse, error in
+            NetworkManager.shared.getCryptocurrencyRate(cellData.typeOfCell) { [weak self] name, jsonResponse, error in
                 guard let self = self else { return }
                 
+                if let name = name {
+                    self.cellDataArray[index].currencyName = name
+                }
                 if let response = jsonResponse {
                     self.cellDataArray[index].dataBase = response
                     self.initChart(for: &self.cellDataArray[index])
@@ -169,10 +173,11 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         if !cellData.cellDataForChart.isEmpty {
             cell.centralBarView.data = cellData.cellDataForChart
-            cell.averageLabel.text = "$ " + String(Int(cellData.averageValue))
-            cell.highestLabel.text = "$ " + String(cellData.highestValue)
-            cell.lowestLabel.text = "$ " + String(cellData.lowestValue)
-            cell.cryptocurrencyRateLabel.text = "$ " + String(cellData.currencyRate)
+            cell.averageLabel.text = String(Int(cellData.averageValue)) + " USD"
+            cell.highestLabel.text = String(cellData.highestValue) + " USD"
+            cell.lowestLabel.text = String(cellData.lowestValue) + " USD"
+            cell.cryptocurrencyRateLabel.text = String(cellData.currencyRate) + " USD"
+            cell.cryptocurrencyNameLabel.text = cellData.currencyName
         }
     }
     

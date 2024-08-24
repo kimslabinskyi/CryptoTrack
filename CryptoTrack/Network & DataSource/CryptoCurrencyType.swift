@@ -29,4 +29,15 @@ enum CryptoCurrencyType {
              return nil
         }
     }
+    
+    var name: String? {
+        switch self {
+        case .btc:
+            return "Bitcoin rate"
+        case .eth: 
+            return "Ethereum rate"
+        default:
+            return nil
+        }
+    }
 }
