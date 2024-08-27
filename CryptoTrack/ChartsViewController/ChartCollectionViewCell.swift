@@ -17,6 +17,10 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var highestLabel: UILabel!
     @IBOutlet weak var lowestLabel: UILabel!
+    @IBOutlet weak var marketCapLabel: UILabel!
+    
+    @IBOutlet weak var dailySummaryLabel: UILabel!
+    @IBOutlet weak var weeklySummaryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,5 +50,9 @@ class ChartCollectionViewCell: UICollectionViewCell {
         centralBarView.rightAxis.enabled = false
         centralBarView.animate(yAxisDuration: 1.0)
         
+        dailySummaryLabel.layer.cornerRadius = 5
+        dailySummaryLabel.layer.masksToBounds = true
+        weeklySummaryLabel.layer.cornerRadius = 5
+        weeklySummaryLabel.layer.masksToBounds = true
     }
 }
