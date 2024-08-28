@@ -18,14 +18,32 @@ struct CellData {
     var lowestValue: Int
     var currencyRate: Int
     var currencyName: String
+    var dailySummary: Double
+    var dynamicSummary: Double
 }
 
 class ChartsViewController: UIViewController, ChartViewDelegate {
     
     var cellDataArray: [CellData] = [
-        CellData(typeOfCell: .btc, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0, currencyName: ""),
-        CellData(typeOfCell: .eth, averageValue: 0.0, highestValue: 0, lowestValue: Int.max, currencyRate: 0, currencyName: "")
+        CellData(typeOfCell: .btc,
+                 averageValue: 0.0,
+                 highestValue: 0,
+                 lowestValue: Int.max,
+                 currencyRate: 0,
+                 currencyName: "",
+                 dailySummary: 0.0,
+                 dynamicSummary: 0.0),
+        
+        CellData(typeOfCell: .eth,
+                 averageValue: 0.0,
+                 highestValue: 0,
+                 lowestValue: Int.max,
+                 currencyRate: 0,
+                 currencyName: "",
+                 dailySummary: 0.0,
+                 dynamicSummary: 0.0)
     ]
+    
     var hasErrorOccurred = false
     
     private var popover = CustomPopoverView()
@@ -82,6 +100,17 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         var lowestValue: Double = Double.greatestFiniteMagnitude
         var highestValue: Double = 0.0
         
+        guard let firstElement = cellData.dataBase.prices.first?[1]
+        else { return }
+        guard let lastElement = cellData.dataBase.prices.last?[1]
+        else { return }
+        
+        let secondLastElementIndex = cellData.dataBase.prices.count - 2
+        guard cellData.dataBase.prices.indices.contains(secondLastElementIndex)
+        else { return }
+        let secondLastElement = cellData.dataBase.prices[secondLastElementIndex][1]
+                
+        
         for (index, priceData) in cellData.dataBase.prices.enumerated(){
             
             let price = round(priceData[1])
@@ -101,12 +130,24 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         cellData.lowestValue = Int(lowestValue)
         cellData.highestValue = Int(highestValue)
         
+        let summaryDifference = lastElement - firstElement
+        let dailyDifference = lastElement - secondLastElement
+        cellData.dynamicSummary = summaryDifference/firstElement * 100
+        cellData.dailySummary = dailyDifference/secondLastElement * 100
+        print("CellData monthlySummary = \(cellData.dynamicSummary)")
+        print("CellData dailySummary = \(cellData.dailySummary)")
+        
         if let lastPrice = cellData.dataBase.prices.last?[1] {
             cellData.currencyRate = Int(lastPrice)
         }
         
         let dataSet = BarChartDataSet(entries: entries, label: "\(cellData.typeOfCell)")
-        dataSet.colors = [UIColor.systemGreen]
+        
+        if cellData.dailySummary < 0 {
+            dataSet.colors = [UIColor.systemRed]
+        } else if cellData.dailySummary >= 0 {
+            dataSet.colors = [UIColor.systemGreen]
+        }
         dataSet.drawValuesEnabled = false
         cellData.cellDataForChart = BarChartData(dataSet: dataSet)
         
@@ -178,6 +219,20 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.lowestLabel.text = String(cellData.lowestValue) + " USD"
             cell.cryptocurrencyRateLabel.text = String(cellData.currencyRate) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
+            
+            if cellData.dynamicSummary < 0 {
+                cell.dynamicSummaryLabel.text = String(format: "%.2f", cellData.dynamicSummary) + " %"
+                cell.dynamicSummaryLabel.backgroundColor = UIColor.systemRed
+            } else {
+                cell.dynamicSummaryLabel.text = "+\(String(format: "%.2f", cellData.dynamicSummary))%"
+            }
+            
+            if cellData.dailySummary < 0 {
+                cell.dailySummaryLabel.text = String(format: "%.2f", cellData.dailySummary) + " %"
+                cell.dailySummaryLabel.backgroundColor = UIColor.systemRed
+            } else {
+                cell.dailySummaryLabel.text = "+\(String(format: "%.2f", cellData.dailySummary))%"
+            }
         }
     }
     

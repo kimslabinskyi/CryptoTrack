@@ -20,7 +20,7 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var marketCapLabel: UILabel!
     
     @IBOutlet weak var dailySummaryLabel: UILabel!
-    @IBOutlet weak var weeklySummaryLabel: UILabel!
+    @IBOutlet weak var dynamicSummaryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,7 +52,7 @@ class ChartCollectionViewCell: UICollectionViewCell {
         
         dailySummaryLabel.layer.cornerRadius = 5
         dailySummaryLabel.layer.masksToBounds = true
-        weeklySummaryLabel.layer.cornerRadius = 5
-        weeklySummaryLabel.layer.masksToBounds = true
+        dynamicSummaryLabel.layer.cornerRadius = 5
+        dynamicSummaryLabel.layer.masksToBounds = true
     }
 }
