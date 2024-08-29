@@ -10,9 +10,24 @@ import Alamofire
 
 struct CryptocurrencyRate: Codable {
     let prices: [[Double]]
-
+    
     enum CodingKeys: String, CodingKey {
         case prices
+    }
+}
+
+struct CryptocurrencyMarketCapResponse: Codable {
+    let bitcoin: CryptocurrencyMarketCap?
+    let ethereum: CryptocurrencyMarketCap?
+}
+
+struct CryptocurrencyMarketCap: Codable {
+    let usd: Double
+    let usdMarketCap: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case usd
+        case usdMarketCap = "usd_market_cap"
     }
 }
 
@@ -24,7 +39,7 @@ class NetworkManager{
     
     func getCryptocurrencyRate(_ cryptocurrency: CryptoCurrencyType, _ completion: @escaping (String?, CryptocurrencyRate?, Error?) -> ()) {
         
-        guard let url = cryptocurrency.url else {
+        guard let url = cryptocurrency.urlForChart else {
             fatalError()
         }
         
@@ -41,11 +56,11 @@ class NetworkManager{
         AF.request(url, parameters: parameters).responseData { response in
             switch response.result{
             case .success(let data):
-                          do {
-                              let marketChartData = try JSONDecoder().decode(CryptocurrencyRate.self, from: data)
-                              completion(name, marketChartData, nil)
-                              print(response)
-
+                do {
+                    let marketChartData = try JSONDecoder().decode(CryptocurrencyRate.self, from: data)
+                    completion(name, marketChartData, nil)
+                    print(response)
+                    
                 } catch {
                     completion(nil, nil, error)
                 }
@@ -57,8 +72,47 @@ class NetworkManager{
         
     }
     
+    func getMarketCap(_ cryptocurrency: CryptoCurrencyType, _ completion: @escaping (CryptocurrencyMarketCap?, Error?) -> ()){
+        
+        guard let url = cryptocurrency.urlForMarketCap else {
+            fatalError()
+        }
+        
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let marketCapDataResponse = try decoder.decode(CryptocurrencyMarketCapResponse.self, from: data)
+                    
+                    var marketCapData: CryptocurrencyMarketCap?
+                    switch cryptocurrency {
+                    case .btc:
+                        marketCapData = marketCapDataResponse.bitcoin
+                    case .eth:
+                        marketCapData = marketCapDataResponse.ethereum
+                    default:
+                        marketCapData = nil
+                    }
+                    
+                    if let marketCapData = marketCapData {
+                        completion(marketCapData, nil)
+                    } else {
+                        completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Data not found for the specified cryptocurrency"]))
+                    }
+                } catch {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+            
+        }
+    }
+    
+    
+    
 }
-
 
 
 

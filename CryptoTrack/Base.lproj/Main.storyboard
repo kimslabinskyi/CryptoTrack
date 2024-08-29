@@ -450,7 +450,7 @@
                                             <outlet property="dynamicSummaryLabel" destination="28W-Xl-GBQ" id="qlQ-HE-azu"/>
                                             <outlet property="highestLabel" destination="879-W1-1Qp" id="gNK-Sd-MKg"/>
                                             <outlet property="lowestLabel" destination="1ms-G3-mR7" id="sqo-Aw-GEp"/>
-                                            <outlet property="marketCapLabel" destination="lDZ-5a-vDQ" id="RFI-TK-SLV"/>
+                                            <outlet property="marketCapLabel" destination="lDZ-5a-vDQ" id="DO3-y4-sQ9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

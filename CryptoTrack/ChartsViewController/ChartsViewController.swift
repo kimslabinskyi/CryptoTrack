@@ -20,6 +20,7 @@ struct CellData {
     var currencyName: String
     var dailySummary: Double
     var dynamicSummary: Double
+    var marketCap: Int
 }
 
 class ChartsViewController: UIViewController, ChartViewDelegate {
@@ -32,7 +33,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                  currencyRate: 0,
                  currencyName: "",
                  dailySummary: 0.0,
-                 dynamicSummary: 0.0),
+                 dynamicSummary: 0.0,
+                 marketCap: 0),
         
         CellData(typeOfCell: .eth,
                  averageValue: 0.0,
@@ -41,7 +43,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                  currencyRate: 0,
                  currencyName: "",
                  dailySummary: 0.0,
-                 dynamicSummary: 0.0)
+                 dynamicSummary: 0.0,
+                 marketCap: 0)
     ]
     
     var hasErrorOccurred = false
@@ -52,13 +55,13 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         setUp()
+        setUp()
         loadData()
     }
     
     private func setUp(){
         collectionView.delaysContentTouches = false
-
+        
     }
     
     private func loadData(){
@@ -83,6 +86,22 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                 
                 dispatchGroup.leave()
             }
+            
+            dispatchGroup.enter()
+            NetworkManager.shared.getMarketCap(cellData.typeOfCell) { [weak self] jsonResponse, error in
+                guard let self = self else { return }
+                
+                if let response = jsonResponse {
+                    let marketCap = response.usdMarketCap
+                    self.cellDataArray[index].marketCap = Int(marketCap)
+                    print("MarketCap = \(String(describing: jsonResponse))")
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                dispatchGroup.leave()
+            }
+            
             dispatchGroup.notify(queue: .main){
                 if self.hasErrorOccurred == false {
                     self.collectionView.reloadData()
@@ -109,7 +128,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         guard cellData.dataBase.prices.indices.contains(secondLastElementIndex)
         else { return }
         let secondLastElement = cellData.dataBase.prices[secondLastElementIndex][1]
-                
+        
         
         for (index, priceData) in cellData.dataBase.prices.enumerated(){
             
@@ -219,6 +238,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.lowestLabel.text = String(cellData.lowestValue) + " USD"
             cell.cryptocurrencyRateLabel.text = String(cellData.currencyRate) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
+            cell.marketCapLabel.text = String(cellData.marketCap)
             
             if cellData.dynamicSummary < 0 {
                 cell.dynamicSummaryLabel.text = String(format: "%.2f", cellData.dynamicSummary) + " %"

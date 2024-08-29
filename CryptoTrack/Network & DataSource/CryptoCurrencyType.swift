@@ -19,14 +19,14 @@ enum CryptoCurrencyType {
     case ltc
     case busd
     
-    var url: String? {
+    var urlForChart: String? {
         switch self {
         case .btc:
             return "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"
         case .eth:
             return "https://api.coingecko.com/api/v3/coins/ethereum/market_chart"
         default:
-             return nil
+            return nil
         }
     }
     
@@ -34,10 +34,25 @@ enum CryptoCurrencyType {
         switch self {
         case .btc:
             return "Bitcoin rate"
-        case .eth: 
+        case .eth:
             return "Ethereum rate"
         default:
             return nil
         }
     }
+    
+    var urlForMarketCap: String? {
+        switch self {
+        case .btc:
+            return "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true"
+        case .eth:
+            return "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_market_cap=true"
+        default:
+            return nil
+        }
+    }
+    
+    
+    
+    
 }

@@ -22,6 +22,7 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
