@@ -33,17 +33,8 @@ class ChartCollectionViewCell: UICollectionViewCell {
         centralBarView.pinchZoomEnabled = false
         centralBarView.pinchZoomEnabled = false
         centralBarView.doubleTapToZoomEnabled = false
-        centralBarView.dragEnabled = false
+        //centralBarView.dragEnabled = false
         centralBarView.xAxis.drawLabelsEnabled = false
-        
-        centralBarView.scaleXEnabled = false
-        centralBarView.scaleYEnabled = false
-        centralBarView.pinchZoomEnabled = false
-        centralBarView.pinchZoomEnabled = false
-        centralBarView.doubleTapToZoomEnabled = false
-        centralBarView.dragEnabled = false
-        centralBarView.xAxis.drawLabelsEnabled = false
-
         
         centralBarView.xAxis.labelPosition = .bottom
         centralBarView.xAxis.drawGridLinesEnabled = false
@@ -55,5 +46,9 @@ class ChartCollectionViewCell: UICollectionViewCell {
         dailySummaryLabel.layer.masksToBounds = true
         dynamicSummaryLabel.layer.cornerRadius = 5
         dynamicSummaryLabel.layer.masksToBounds = true
+    }
+    
+    func deselectElement(){
+        centralBarView.highlightValue(nil)
     }
 }

@@ -16,7 +16,7 @@ struct CellData {
     var averageValue: Double
     var highestValue: Int
     var lowestValue: Int
-    var currencyRate: Int
+    var currencyRate: Double
     var currencyName: String
     var dailySummary: Double
     var dynamicSummary: Double
@@ -48,6 +48,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     ]
     
     var hasErrorOccurred = false
+    var selectedIndexPath: IndexPath?
     
     private var popover = CustomPopoverView()
     
@@ -57,6 +58,32 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         setUp()
         loadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail"{
+            
+            if let indexPath = selectedIndexPath{
+                let selectedDataBase = cellDataArray[indexPath.item].dataBase
+                let selectedCurrencyRate = cellDataArray[indexPath.item].currencyRate
+                let selectedCCurrencyName = cellDataArray[indexPath.item].currencyName
+                let selectedAwgValue = cellDataArray[indexPath.item].averageValue
+                let selectedHighValue = cellDataArray[indexPath.item].highestValue
+                let selectedLowValue = cellDataArray[indexPath.item].lowestValue
+                let selectedMarketCap = cellDataArray[indexPath.item].marketCap
+                
+                if let destinationVC = segue.destination as? DetailScreenViewController {
+                    destinationVC.dataBase = selectedDataBase
+                    destinationVC.currencyRate = selectedCurrencyRate
+                    destinationVC.currencyName = selectedCCurrencyName
+                    destinationVC.averageValue = selectedAwgValue
+                    destinationVC.highestValue = selectedHighValue
+                    destinationVC.lowestValue = selectedLowValue
+                    destinationVC.marketCap = selectedMarketCap
+                    
+                }
+            }
+        }
     }
     
     private func setUp(){
@@ -153,11 +180,9 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         let dailyDifference = lastElement - secondLastElement
         cellData.dynamicSummary = summaryDifference/firstElement * 100
         cellData.dailySummary = dailyDifference/secondLastElement * 100
-        print("CellData monthlySummary = \(cellData.dynamicSummary)")
-        print("CellData dailySummary = \(cellData.dailySummary)")
         
         if let lastPrice = cellData.dataBase.prices.last?[1] {
-            cellData.currencyRate = Int(lastPrice)
+            cellData.currencyRate = lastPrice
         }
         
         let dataSet = BarChartDataSet(entries: entries, label: "\(cellData.typeOfCell)")
@@ -236,7 +261,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.averageLabel.text = String(Int(cellData.averageValue)) + " USD"
             cell.highestLabel.text = String(cellData.highestValue) + " USD"
             cell.lowestLabel.text = String(cellData.lowestValue) + " USD"
-            cell.cryptocurrencyRateLabel.text = String(cellData.currencyRate) + " USD"
+            cell.cryptocurrencyRateLabel.text = String(Int(cellData.currencyRate)) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
             cell.marketCapLabel.text = String(cellData.marketCap)
             
@@ -256,6 +281,23 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if scrollView == collectionView {
+            popover.hide()
+            for cell in collectionView.visibleCells {
+                if let chartCell = cell as? ChartCollectionViewCell {
+                    chartCell.deselectElement()
+                }
+            }
+        }
+        
+    }
     
 }
 
