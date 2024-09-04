@@ -8,21 +8,11 @@
 import UIKit
 import Charts
 
+protocol DaysSelectionDelegate{
+    func sendData(_ daysCount: Int)
+}
+
 class DetailScreenViewController: UIViewController, ChartViewDelegate {
-    
-    var dataBase = CryptocurrencyRate(prices: [])
-    var cellDataForChart = BarChartData()
-    var averageValue: Double = 0.0
-    var highestValue: Double = 0.0
-    var lowestValue: Double = 0.0
-    var currencyRate: Double = 0.0
-    var currencyName: String = ""
-    var dailySummary: Double = 0.0
-    var dynamicSummary: Double = 0.0
-    var marketCap: Int = 0
-  
-    
-    private var popover = CustomPopoverView()
 
     @IBOutlet weak var centralBarView: BarChartView!
     
@@ -37,6 +27,21 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
     
     @IBOutlet weak var segmentController: UISegmentedControl!
+    
+    var dataBase = CryptocurrencyRate(prices: [])
+    var cellDataForChart = BarChartData()
+    var averageValue: Double = 0.0
+    var highestValue: Double = 0.0
+    var lowestValue: Double = 0.0
+    var currencyRate: Double = 0.0
+    var currencyName: String = ""
+    var dailySummary: Double = 0.0
+    var dynamicSummary: Double = 0.0
+    var marketCap: Int = 0
+    
+    var delegate: DaysSelectionDelegate?
+  
+    private var popover = CustomPopoverView()
     
     
     override func viewDidLoad() {
@@ -61,7 +66,11 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
         
-        segmentController.selectedSegmentIndex = 1
+        if let savedIndex = UserDefaults.standard.value(forKey: "selectedSegmentIndex") as? Int {
+            segmentController.selectedSegmentIndex = savedIndex
+        } else {
+            segmentController.selectedSegmentIndex = 1 
+        }
     }
     
     private func setUpLabels(){
@@ -96,18 +105,22 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     }
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            
-        } else if sender.selectedSegmentIndex == 1 {
-            
-        } else if sender.selectedSegmentIndex == 2 {
-            
-        } else if sender.selectedSegmentIndex == 3 {
-            
-        } else if sender.selectedSegmentIndex == 4 {
-            
-        } else if sender.selectedSegmentIndex == 5 {
-            
+        let selectedIndex = sender.selectedSegmentIndex
+        UserDefaults.standard.set(selectedIndex, forKey: "selectedSegmentIndex")
+
+        switch selectedIndex {
+        case 0:
+            delegate?.sendData(7)
+        case 1:
+            delegate?.sendData(31)
+        case 2:
+            delegate?.sendData(90)
+        case 3:
+            delegate?.sendData(365)
+        case 4:
+            delegate?.sendData(777)
+        default:
+            break
         }
     }
     

@@ -23,7 +23,7 @@ struct CellData {
     var marketCap: Int
 }
 
-class ChartsViewController: UIViewController, ChartViewDelegate {
+class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDelegate {
     
     var cellDataArray: [CellData] = [
         CellData(typeOfCell: .btc,
@@ -49,6 +49,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     
     var hasErrorOccurred = false
     var selectedIndexPath: IndexPath?
+    var daysCount = 31
     
     private var popover = CustomPopoverView()
     
@@ -58,6 +59,11 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         setUp()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("daysCount = \(self.daysCount)")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,6 +81,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                 let selectedDynamicSummary = cellDataArray[indexPath.item].dynamicSummary
                 
                 if let destinationVC = segue.destination as? DetailScreenViewController {
+                    destinationVC.delegate = self
                     destinationVC.dataBase = selectedDataBase
                     destinationVC.currencyRate = selectedCurrencyRate
                     destinationVC.currencyName = selectedCCurrencyName
@@ -167,12 +174,12 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
             entries.append(BarChartDataEntry(x: Double(index), y: price))
             sum += price
             
-            if price < lowestValue{
-                lowestValue = price
+            if priceData[1] < lowestValue{
+                lowestValue = priceData[1]
             }
             
-            if price > highestValue {
-                highestValue = price
+            if priceData[1] > highestValue {
+                highestValue = priceData[1]
             }
         }
         
@@ -227,6 +234,10 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
         popover.hide()
+    }
+    
+    func sendData(_ daysCount: Int) {
+        self.daysCount = daysCount
     }
     
     private func showAlert(title: String, message: String){
