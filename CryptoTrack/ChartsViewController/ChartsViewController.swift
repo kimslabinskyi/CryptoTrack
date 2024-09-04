@@ -14,8 +14,8 @@ struct CellData {
     var dataBase = CryptocurrencyRate(prices: [])
     var cellDataForChart = BarChartData()
     var averageValue: Double
-    var highestValue: Int
-    var lowestValue: Int
+    var highestValue: Double
+    var lowestValue: Double
     var currencyRate: Double
     var currencyName: String
     var dailySummary: Double
@@ -28,8 +28,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     var cellDataArray: [CellData] = [
         CellData(typeOfCell: .btc,
                  averageValue: 0.0,
-                 highestValue: 0,
-                 lowestValue: Int.max,
+                 highestValue: 0.0,
+                 lowestValue: Double.greatestFiniteMagnitude,
                  currencyRate: 0,
                  currencyName: "",
                  dailySummary: 0.0,
@@ -38,8 +38,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         
         CellData(typeOfCell: .eth,
                  averageValue: 0.0,
-                 highestValue: 0,
-                 lowestValue: Int.max,
+                 highestValue: 0.0,
+                 lowestValue: Double.greatestFiniteMagnitude,
                  currencyRate: 0,
                  currencyName: "",
                  dailySummary: 0.0,
@@ -71,6 +71,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                 let selectedHighValue = cellDataArray[indexPath.item].highestValue
                 let selectedLowValue = cellDataArray[indexPath.item].lowestValue
                 let selectedMarketCap = cellDataArray[indexPath.item].marketCap
+                let selectedDailySummary = cellDataArray[indexPath.item].dailySummary
+                let selectedDynamicSummary = cellDataArray[indexPath.item].dynamicSummary
                 
                 if let destinationVC = segue.destination as? DetailScreenViewController {
                     destinationVC.dataBase = selectedDataBase
@@ -80,7 +82,9 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                     destinationVC.highestValue = selectedHighValue
                     destinationVC.lowestValue = selectedLowValue
                     destinationVC.marketCap = selectedMarketCap
-                    
+                    destinationVC.dailySummary = selectedDailySummary
+                    destinationVC.dynamicSummary = selectedDynamicSummary
+
                 }
             }
         }
@@ -173,8 +177,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         }
         
         cellData.averageValue = sum / Double(cellData.dataBase.prices.count)
-        cellData.lowestValue = Int(lowestValue)
-        cellData.highestValue = Int(highestValue)
+        cellData.lowestValue = lowestValue
+        cellData.highestValue = highestValue
         
         let summaryDifference = lastElement - firstElement
         let dailyDifference = lastElement - secondLastElement
@@ -259,8 +263,8 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if !cellData.cellDataForChart.isEmpty {
             cell.centralBarView.data = cellData.cellDataForChart
             cell.averageLabel.text = String(Int(cellData.averageValue)) + " USD"
-            cell.highestLabel.text = String(cellData.highestValue) + " USD"
-            cell.lowestLabel.text = String(cellData.lowestValue) + " USD"
+            cell.highestLabel.text = String(Int(cellData.highestValue)) + " USD"
+            cell.lowestLabel.text = String(Int(cellData.lowestValue)) + " USD"
             cell.cryptocurrencyRateLabel.text = String(Int(cellData.currencyRate)) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
             cell.marketCapLabel.text = String(cellData.marketCap)
@@ -269,14 +273,14 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.dynamicSummaryLabel.text = String(format: "%.2f", cellData.dynamicSummary) + " %"
                 cell.dynamicSummaryLabel.backgroundColor = UIColor.systemRed
             } else {
-                cell.dynamicSummaryLabel.text = "+\(String(format: "%.2f", cellData.dynamicSummary))%"
+                cell.dynamicSummaryLabel.text = "+\(String(format: "%.2f", cellData.dynamicSummary)) %"
             }
             
             if cellData.dailySummary < 0 {
                 cell.dailySummaryLabel.text = String(format: "%.2f", cellData.dailySummary) + " %"
                 cell.dailySummaryLabel.backgroundColor = UIColor.systemRed
             } else {
-                cell.dailySummaryLabel.text = "+\(String(format: "%.2f", cellData.dailySummary))%"
+                cell.dailySummaryLabel.text = "+\(String(format: "%.2f", cellData.dailySummary)) %"
             }
         }
     }

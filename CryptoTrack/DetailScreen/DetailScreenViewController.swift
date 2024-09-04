@@ -13,13 +13,14 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     var dataBase = CryptocurrencyRate(prices: [])
     var cellDataForChart = BarChartData()
     var averageValue: Double = 0.0
-    var highestValue: Int = 0
-    var lowestValue: Int = 0
+    var highestValue: Double = 0.0
+    var lowestValue: Double = 0.0
     var currencyRate: Double = 0.0
     var currencyName: String = ""
     var dailySummary: Double = 0.0
     var dynamicSummary: Double = 0.0
     var marketCap: Int = 0
+  
     
     private var popover = CustomPopoverView()
 
@@ -32,6 +33,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var awgRateLabel: UILabel!
     @IBOutlet weak var marketCapLabel: UILabel!
     @IBOutlet weak var daysCounterLabel: UILabel!
+    @IBOutlet weak var dailySummaryLabel: UILabel!
+    @IBOutlet weak var dynamicSummaryLabel: UILabel!
     
     @IBOutlet weak var segmentController: UISegmentedControl!
     
@@ -50,7 +53,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.scaleXEnabled = false
         centralBarView.scaleYEnabled = false
         centralBarView.pinchZoomEnabled = false
-        centralBarView.pinchZoomEnabled = false
         centralBarView.doubleTapToZoomEnabled = false
         centralBarView.xAxis.drawLabelsEnabled = false
         
@@ -58,18 +60,57 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.xAxis.drawGridLinesEnabled = false
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
-        centralBarView.animate(yAxisDuration: 1.0)
+        
+        segmentController.selectedSegmentIndex = 1
     }
     
     private func setUpLabels(){
         currencyRateLabel.text = String(format: "%.2f", currencyRate) + " USD"
-        currencyNameLabel.text = String(currencyName)
-        highRateLabel.text = String(highestValue) + " USD"
-        lowRateLabel.text = String(lowestValue) + " USD"
-        awgRateLabel.text = String(Int(averageValue)) + " USD"
+        currencyNameLabel.text = currencyName
+        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
+        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
+        awgRateLabel.text = String(format: "%.2f", averageValue) + " USD"
         marketCapLabel.text = String(marketCap)
+ 
+        if dailySummary < 0 {
+            dailySummaryLabel.text = "\(String(format: "%.3f", dailySummary)) %"
+            dailySummaryLabel.backgroundColor = UIColor.systemRed
+        } else {
+            dailySummaryLabel.text = "+\(String(format: "%.3f", dailySummary)) %"
+            dailySummaryLabel.backgroundColor = UIColor.systemGreen
+        }
+        
+        if dynamicSummary < 0 {
+            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = UIColor.systemRed
+        } else {
+            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = UIColor.systemGreen
+        }
+        
+        dailySummaryLabel.layer.cornerRadius = 5
+        dailySummaryLabel.layer.masksToBounds = true
+        dynamicSummaryLabel.layer.cornerRadius = 5
+        dynamicSummaryLabel.layer.masksToBounds = true
         
     }
+    
+    @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            
+        } else if sender.selectedSegmentIndex == 1 {
+            
+        } else if sender.selectedSegmentIndex == 2 {
+            
+        } else if sender.selectedSegmentIndex == 3 {
+            
+        } else if sender.selectedSegmentIndex == 4 {
+            
+        } else if sender.selectedSegmentIndex == 5 {
+            
+        }
+    }
+    
 
     func initChart() {
         
@@ -80,9 +121,14 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
             entries.append(BarChartDataEntry(x: Double(index), y: price))
         }
         
-        let dataSet = BarChartDataSet(entries: entries, label: "TEST")
+        let dataSet = BarChartDataSet(entries: entries, label: currencyName)
         
-        dataSet.colors = [UIColor.systemGreen]
+        if dailySummary < 0 {
+            dataSet.colors = [UIColor.systemRed]
+        } else {
+            dataSet.colors = [UIColor.systemGreen]
+        }
+        
         dataSet.drawValuesEnabled = false
     
         
