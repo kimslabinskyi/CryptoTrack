@@ -8,12 +8,10 @@
 import UIKit
 import Charts
 
-protocol DaysSelectionDelegate{
-    func sendData(_ daysCount: Int)
-}
+
 
 class DetailScreenViewController: UIViewController, ChartViewDelegate {
-
+    
     @IBOutlet weak var centralBarView: BarChartView!
     
     @IBOutlet weak var currencyNameLabel: UILabel!
@@ -28,27 +26,20 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var segmentController: UISegmentedControl!
     
-    var dataBase = CryptocurrencyRate(prices: [])
-    var cellDataForChart = BarChartData()
-    var averageValue: Double = 0.0
-    var highestValue: Double = 0.0
-    var lowestValue: Double = 0.0
-    var currencyRate: Double = 0.0
-    var currencyName: String = ""
-    var dailySummary: Double = 0.0
-    var dynamicSummary: Double = 0.0
-    var marketCap: Int = 0
+    var cellDataArray = GlobalData.cellDataArray
+    var indexPath: IndexPath?
+    var rowIndex: Int {
+        return indexPath?.row ?? 0
+    }
     
-    var delegate: DaysSelectionDelegate?
-  
     private var popover = CustomPopoverView()
-    
+    private let alertController = AlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         setUpLabels()
-        initChart()
+        initChart(daysCount: 31)
     }
     
     private func setUp(){
@@ -66,34 +57,30 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
         
-        if let savedIndex = UserDefaults.standard.value(forKey: "selectedSegmentIndex") as? Int {
-            segmentController.selectedSegmentIndex = savedIndex
-        } else {
-            segmentController.selectedSegmentIndex = 1 
-        }
+       
     }
     
     private func setUpLabels(){
-        currencyRateLabel.text = String(format: "%.2f", currencyRate) + " USD"
-        currencyNameLabel.text = currencyName
-        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
-        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
-        awgRateLabel.text = String(format: "%.2f", averageValue) + " USD"
-        marketCapLabel.text = String(marketCap)
- 
-        if dailySummary < 0 {
-            dailySummaryLabel.text = "\(String(format: "%.3f", dailySummary)) %"
+        currencyRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].currencyRate) + " USD"
+        currencyNameLabel.text = cellDataArray[rowIndex].currencyName
+        highRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].highestValue) + " USD"
+        lowRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].lowestValue) + " USD"
+        awgRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].averageValue) + " USD"
+        marketCapLabel.text = String(cellDataArray[rowIndex].marketCap)
+        
+        if cellDataArray[rowIndex].dailySummary < 0 {
+            dailySummaryLabel.text = "\(String(format: "%.3f", cellDataArray[rowIndex].dailySummary)) %"
             dailySummaryLabel.backgroundColor = UIColor.systemRed
         } else {
-            dailySummaryLabel.text = "+\(String(format: "%.3f", dailySummary)) %"
+            dailySummaryLabel.text = "+\(String(format: "%.3f", cellDataArray[rowIndex].dailySummary)) %"
             dailySummaryLabel.backgroundColor = UIColor.systemGreen
         }
         
-        if dynamicSummary < 0 {
-            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
+        if cellDataArray[rowIndex].dynamicSummary < 0 {
+            dynamicSummaryLabel.text = "\(String(format: "%.3f", cellDataArray[rowIndex].dynamicSummary)) %"
             dynamicSummaryLabel.backgroundColor = UIColor.systemRed
         } else {
-            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.text = "+\(String(format: "%.3f", cellDataArray[rowIndex].dynamicSummary)) %"
             dynamicSummaryLabel.backgroundColor = UIColor.systemGreen
         }
         
@@ -102,80 +89,80 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         dynamicSummaryLabel.layer.cornerRadius = 5
         dynamicSummaryLabel.layer.masksToBounds = true
         
+        segmentController.selectedSegmentIndex = 1 
     }
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
-        UserDefaults.standard.set(selectedIndex, forKey: "selectedSegmentIndex")
-
+        
         switch selectedIndex {
         case 0:
-            delegate?.sendData(7)
+            initChart(daysCount: 7)
         case 1:
-            delegate?.sendData(31)
+            initChart(daysCount: 31)
         case 2:
-            delegate?.sendData(90)
+            initChart(daysCount: 90)
         case 3:
-            delegate?.sendData(365)
+            initChart(daysCount: 365)
         case 4:
-            delegate?.sendData(777)
+            print("Empty")
         default:
             break
         }
     }
     
-
-    func initChart() {
-        
+    func initChart(daysCount: Int) {
         var entries = [BarChartDataEntry]()
+        var testEntries = [BarChartDataEntry]()
         
-        for (index, priceData) in dataBase.prices.enumerated() {
+        for (index, priceData) in cellDataArray[rowIndex].dataBase.prices.enumerated() {
             let price = round(priceData[1])
             entries.append(BarChartDataEntry(x: Double(index), y: price))
+            testEntries = Array(entries.suffix(daysCount))
         }
         
-        let dataSet = BarChartDataSet(entries: entries, label: currencyName)
+        let dataSet = BarChartDataSet(entries: testEntries, label: cellDataArray[rowIndex].currencyName)
         
-        if dailySummary < 0 {
+        if cellDataArray[rowIndex].dailySummary < 0 {
             dataSet.colors = [UIColor.systemRed]
         } else {
             dataSet.colors = [UIColor.systemGreen]
         }
         
         dataSet.drawValuesEnabled = false
-    
+        
         
         let data = BarChartData(dataSet: dataSet)
         
         centralBarView.data = data
     }
     
-        func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
-            print("Selected value: \(entry.y)")
-            guard let barChartView = chartView as? BarChartView else { return }
-    
-            let xAxisValue = entry.x
-            let yAxisValue = entry.y
-    
-            let transformer = barChartView.getTransformer(forAxis: .left)
-            let point = transformer.pixelForValues(x: xAxisValue, y: yAxisValue)
-            let convertedPoint = barChartView.convert(point, to: self.view)
-    
-            let text = "\(entry.y)"
-    
-            let popoverWith: CGFloat = 100
-            let popoverHeight: CGFloat = 50
-            let popoverX = convertedPoint.x - popoverWith / 2
-            let popoverY = convertedPoint.y - popoverHeight - 8
-    
-            popover.setup(with: text)
-            popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
-        }
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
+        print("Selected value: \(entry.y)")
+        guard let barChartView = chartView as? BarChartView else { return }
         
-        func chartValueNothingSelected(_ chartView: ChartViewBase) {
-            popover.hide()
-        }
+        let xAxisValue = entry.x
+        let yAxisValue = entry.y
+        
+        let transformer = barChartView.getTransformer(forAxis: .left)
+        let point = transformer.pixelForValues(x: xAxisValue, y: yAxisValue)
+        let convertedPoint = barChartView.convert(point, to: self.view)
+        
+        let text = "\(entry.y)"
+        
+        let popoverWith: CGFloat = 100
+        let popoverHeight: CGFloat = 50
+        let popoverX = convertedPoint.x - popoverWith / 2
+        let popoverY = convertedPoint.y - popoverHeight - 8
+        
+        popover.setup(with: text)
+        popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
+    }
     
-    
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        popover.hide()
+    }
 
+    
+    
 }

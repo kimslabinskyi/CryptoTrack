@@ -8,50 +8,13 @@
 import UIKit
 import Charts
 
-
-struct CellData {
-    var typeOfCell: CryptoCurrencyType
-    var dataBase = CryptocurrencyRate(prices: [])
-    var cellDataForChart = BarChartData()
-    var averageValue: Double
-    var highestValue: Double
-    var lowestValue: Double
-    var currencyRate: Double
-    var currencyName: String
-    var dailySummary: Double
-    var dynamicSummary: Double
-    var marketCap: Int
-}
-
-class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDelegate {
-    
-    var cellDataArray: [CellData] = [
-        CellData(typeOfCell: .btc,
-                 averageValue: 0.0,
-                 highestValue: 0.0,
-                 lowestValue: Double.greatestFiniteMagnitude,
-                 currencyRate: 0,
-                 currencyName: "",
-                 dailySummary: 0.0,
-                 dynamicSummary: 0.0,
-                 marketCap: 0),
-        
-        CellData(typeOfCell: .eth,
-                 averageValue: 0.0,
-                 highestValue: 0.0,
-                 lowestValue: Double.greatestFiniteMagnitude,
-                 currencyRate: 0,
-                 currencyName: "",
-                 dailySummary: 0.0,
-                 dynamicSummary: 0.0,
-                 marketCap: 0)
-    ]
+class ChartsViewController: UIViewController, ChartViewDelegate {
     
     var hasErrorOccurred = false
     var selectedIndexPath: IndexPath?
-    var daysCount = 31
     
     private var popover = CustomPopoverView()
+    private let alert = AlertController() 
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -62,36 +25,20 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("daysCount = \(self.daysCount)")
-        
+        for (index, cellData) in GlobalData.cellDataArray.enumerated(){
+            self.initChart(for: &GlobalData.cellDataArray[index])
+            print("index = \(index)")
+            print("cellData = \(cellData)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail"{
             
             if let indexPath = selectedIndexPath{
-                let selectedDataBase = cellDataArray[indexPath.item].dataBase
-                let selectedCurrencyRate = cellDataArray[indexPath.item].currencyRate
-                let selectedCCurrencyName = cellDataArray[indexPath.item].currencyName
-                let selectedAwgValue = cellDataArray[indexPath.item].averageValue
-                let selectedHighValue = cellDataArray[indexPath.item].highestValue
-                let selectedLowValue = cellDataArray[indexPath.item].lowestValue
-                let selectedMarketCap = cellDataArray[indexPath.item].marketCap
-                let selectedDailySummary = cellDataArray[indexPath.item].dailySummary
-                let selectedDynamicSummary = cellDataArray[indexPath.item].dynamicSummary
                 
                 if let destinationVC = segue.destination as? DetailScreenViewController {
-                    destinationVC.delegate = self
-                    destinationVC.dataBase = selectedDataBase
-                    destinationVC.currencyRate = selectedCurrencyRate
-                    destinationVC.currencyName = selectedCCurrencyName
-                    destinationVC.averageValue = selectedAwgValue
-                    destinationVC.highestValue = selectedHighValue
-                    destinationVC.lowestValue = selectedLowValue
-                    destinationVC.marketCap = selectedMarketCap
-                    destinationVC.dailySummary = selectedDailySummary
-                    destinationVC.dynamicSummary = selectedDynamicSummary
-
+                    destinationVC.indexPath = indexPath
                 }
             }
         }
@@ -99,23 +46,23 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
     
     private func setUp(){
         collectionView.delaysContentTouches = false
-        
+
     }
     
     private func loadData(){
-        
         let dispatchGroup = DispatchGroup()
-        for (index, cellData) in cellDataArray.enumerated() {
+        
+        for (index, cellData) in GlobalData.cellDataArray.enumerated() {
             dispatchGroup.enter()
             NetworkManager.shared.getCryptocurrencyRate(cellData.typeOfCell) { [weak self] name, jsonResponse, error in
                 guard let self = self else { return }
                 
                 if let name = name {
-                    self.cellDataArray[index].currencyName = name
+                    GlobalData.cellDataArray[index].currencyName = name
                 }
                 if let response = jsonResponse {
-                    self.cellDataArray[index].dataBase = response
-                    self.initChart(for: &self.cellDataArray[index])
+                    GlobalData.cellDataArray[index].dataBase = response
+                    self.initChart(for: &GlobalData.cellDataArray[index])
                     
                 } else if let error = error {
                     hasErrorOccurred = true
@@ -131,7 +78,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
                 
                 if let response = jsonResponse {
                     let marketCap = response.usdMarketCap
-                    self.cellDataArray[index].marketCap = Int(marketCap)
+                    GlobalData.cellDataArray[index].marketCap = Int(marketCap)
                     print("MarketCap = \(String(describing: jsonResponse))")
                 } else if let error = error {
                     print(error.localizedDescription)
@@ -144,7 +91,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
                 if self.hasErrorOccurred == false {
                     self.collectionView.reloadData()
                 } else {
-                    self.showAlert(title: "Error", message: "Filed to load all data from API, please try again later")
+                    self.alert.showAlert(title: "Error", message: "Failed to load all data from API, please try again later", on: self)
+
                 }
             }
         }
@@ -153,26 +101,31 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
     
     func initChart(for cellData: inout CellData){
         var entries = [BarChartDataEntry]()
+        var testEntries = [BarChartDataEntry]()
         var sum: Double = 0.0
         var lowestValue: Double = Double.greatestFiniteMagnitude
         var highestValue: Double = 0.0
         
-        guard let firstElement = cellData.dataBase.prices.first?[1]
-        else { return }
-        guard let lastElement = cellData.dataBase.prices.last?[1]
-        else { return }
+        guard let lastElement = cellData.dataBase.prices.last?[1] else { return }
+        guard let thirtyFirstFromEnd = cellData.dataBase.prices.suffix(31).first?[1] else { return }
+        
+        print("lastElement = \(lastElement)")
+        print("thirtyFirstFromEnd = \(thirtyFirstFromEnd)")
         
         let secondLastElementIndex = cellData.dataBase.prices.count - 2
         guard cellData.dataBase.prices.indices.contains(secondLastElementIndex)
         else { return }
         let secondLastElement = cellData.dataBase.prices[secondLastElementIndex][1]
         
+        print("secondLastElement = \(secondLastElement)")
         
         for (index, priceData) in cellData.dataBase.prices.enumerated(){
             
             let price = round(priceData[1])
             entries.append(BarChartDataEntry(x: Double(index), y: price))
             sum += price
+            
+            testEntries = Array(entries.suffix(31))
             
             if priceData[1] < lowestValue{
                 lowestValue = priceData[1]
@@ -187,16 +140,18 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
         cellData.lowestValue = lowestValue
         cellData.highestValue = highestValue
         
-        let summaryDifference = lastElement - firstElement
+        let summaryDifference = lastElement - thirtyFirstFromEnd
         let dailyDifference = lastElement - secondLastElement
-        cellData.dynamicSummary = summaryDifference/firstElement * 100
+        print("summaryDifference = \(summaryDifference)")
+        print("dailyDifference = \(dailyDifference)")
+        cellData.dynamicSummary = summaryDifference/thirtyFirstFromEnd * 100
         cellData.dailySummary = dailyDifference/secondLastElement * 100
         
         if let lastPrice = cellData.dataBase.prices.last?[1] {
             cellData.currencyRate = lastPrice
         }
         
-        let dataSet = BarChartDataSet(entries: entries, label: "\(cellData.typeOfCell)")
+        let dataSet = BarChartDataSet(entries: testEntries, label: "\(cellData.typeOfCell)")
         
         if cellData.dailySummary < 0 {
             dataSet.colors = [UIColor.systemRed]
@@ -236,9 +191,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
         popover.hide()
     }
     
-    func sendData(_ daysCount: Int) {
-        self.daysCount = daysCount
-    }
+    
     
     private func showAlert(title: String, message: String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -252,12 +205,12 @@ class ChartsViewController: UIViewController, ChartViewDelegate, DaysSelectionDe
 
 extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cellDataArray.count
+        GlobalData.cellDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChartCollectionViewCell
-        let cellData = cellDataArray[indexPath.row]
+        let cellData = GlobalData.cellDataArray[indexPath.row]
         configureCell(cell, with: cellData)
         
         return cell

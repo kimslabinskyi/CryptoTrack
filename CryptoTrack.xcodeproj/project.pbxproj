@@ -14,8 +14,10 @@
 		3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53D72C5CD92600A3097D /* Assets.xcassets */; };
 		3B4D53DB2C5CD92600A3097D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53DA2C5CD92600A3097D /* Base */; };
 		3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */; };
+		3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9BBC432C91902000A7C09D /* AlertController.swift */; };
 		3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */; };
 		3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */; };
+		3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2C98C2C8A00C200457C20 /* GlobalData.swift */; };
 		3BD8EC1D2C6B715600348B9D /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */; };
 		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
 		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
@@ -32,8 +34,10 @@
 		3B4D53DA2C5CD92600A3097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4D53DC2C5CD92600A3097D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B9BBC432C91902000A7C09D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
+		3BC2C98C2C8A00C200457C20 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
 		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -81,12 +85,21 @@
 				3BFF15E22C627ECA00BB3B62 /* TestScreen */,
 				3BFF15E52C627EFD00BB3B62 /* ChartsViewController */,
 				3BBDDC5B2C85B6EE00A6914A /* DetailScreen */,
+				3B9BBC452C91903600A7C09D /* AlertController */,
 				3B4D53D42C5CD92400A3097D /* Main.storyboard */,
 				3B4D53D72C5CD92600A3097D /* Assets.xcassets */,
 				3B4D53D92C5CD92600A3097D /* LaunchScreen.storyboard */,
 				3B4D53DC2C5CD92600A3097D /* Info.plist */,
 			);
 			path = CryptoTrack;
+			sourceTree = "<group>";
+		};
+		3B9BBC452C91903600A7C09D /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				3B9BBC432C91902000A7C09D /* AlertController.swift */,
+			);
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		3BBDDC5B2C85B6EE00A6914A /* DetailScreen */ = {
@@ -100,8 +113,9 @@
 		3BFF15E12C627EAE00BB3B62 /* Network & DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */,
 				3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */,
+				3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */,
+				3BC2C98C2C8A00C200457C20 /* GlobalData.swift */,
 			);
 			path = "Network & DataSource";
 			sourceTree = "<group>";
@@ -262,7 +276,9 @@
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
 				3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */,
 				3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */,
+				3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */,
 				3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */,
+				3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */,
 				3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */,
 				3B4D53D12C5CD92400A3097D /* SceneDelegate.swift in Sources */,
 			);

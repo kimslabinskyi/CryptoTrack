@@ -49,9 +49,20 @@ class NetworkManager{
         
         let parameters: Parameters = [
             "vs_currency": "usd",
-            "days": "30",
+            "days": 364,
             "interval": "daily"
         ]
+        
+//        let memoryCapacity = 20 * 1024 * 1024
+//        let discCapacity = 100 * 1024 * 1024
+//        let cache = URLCache(memoryCapacity: memoryCapacity,
+//                             diskCapacity: discCapacity)
+//        
+//        let configuration = URLSessionConfiguration.default
+//        configuration.urlCache = cache
+//        configuration.requestCachePolicy = .returnCacheDataElseLoad
+//        
+//        let session = Session(configuration: configuration)
         
         AF.request(url, parameters: parameters).responseData { response in
             switch response.result{
