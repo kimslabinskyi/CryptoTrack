@@ -33,27 +33,27 @@ struct GlobalData {
                  currencyName: "",
                  dailySummary: 0.0,
                  dynamicSummary: 0.0,
-                 marketCap: 0),
-        
-        CellData(typeOfCell: .eth,
-                 averageValue: 0.0,
-                 highestValue: 0.0,
-                 lowestValue: Double.greatestFiniteMagnitude,
-                 currencyRate: 0,
-                 currencyName: "",
-                 dailySummary: 0.0,
-                 dynamicSummary: 0.0,
-                 marketCap: 0),
-        
-        CellData(typeOfCell: .bnb,
-                 averageValue: 0.0,
-                 highestValue: 0.0,
-                 lowestValue: Double.greatestFiniteMagnitude,
-                 currencyRate: 0,
-                 currencyName: "",
-                 dailySummary: 0.0,
-                 dynamicSummary: 0.0,
                  marketCap: 0)
+        
+//        CellData(typeOfCell: .eth,
+//                 averageValue: 0.0,
+//                 highestValue: 0.0,
+//                 lowestValue: Double.greatestFiniteMagnitude,
+//                 currencyRate: 0,
+//                 currencyName: "",
+//                 dailySummary: 0.0,
+//                 dynamicSummary: 0.0,
+//                 marketCap: 0)
+        
+//        CellData(typeOfCell: .bnb,
+//                 averageValue: 0.0,
+//                 highestValue: 0.0,
+//                 lowestValue: Double.greatestFiniteMagnitude,
+//                 currencyRate: 0,
+//                 currencyName: "",
+//                 dailySummary: 0.0,
+//                 dynamicSummary: 0.0,
+//                 marketCap: 0)
         
     ]
     

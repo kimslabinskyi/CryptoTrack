@@ -18,9 +18,10 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var currencyRateLabel: UILabel!
     @IBOutlet weak var highRateLabel: UILabel!
     @IBOutlet weak var lowRateLabel: UILabel!
-    @IBOutlet weak var awgRateLabel: UILabel!
+    @IBOutlet weak var avgRateLabel: UILabel!
     @IBOutlet weak var marketCapLabel: UILabel!
     @IBOutlet weak var daysCounterLabel: UILabel!
+    @IBOutlet weak var dynamicDaysLabel: UILabel!
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
     
@@ -28,6 +29,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     
     var cellDataArray = GlobalData.cellDataArray
     var indexPath: IndexPath?
+    var dynamicSummary: Double = 0.0
     var rowIndex: Int {
         return indexPath?.row ?? 0
     }
@@ -63,9 +65,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     private func setUpLabels(){
         currencyRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].currencyRate) + " USD"
         currencyNameLabel.text = cellDataArray[rowIndex].currencyName
-        highRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].highestValue) + " USD"
-        lowRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].lowestValue) + " USD"
-        awgRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].averageValue) + " USD"
+//        highRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].highestValue) + " USD"
+//        lowRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].lowestValue) + " USD"
         marketCapLabel.text = String(cellDataArray[rowIndex].marketCap)
         
         if cellDataArray[rowIndex].dailySummary < 0 {
@@ -76,20 +77,14 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
             dailySummaryLabel.backgroundColor = UIColor.systemGreen
         }
         
-        if cellDataArray[rowIndex].dynamicSummary < 0 {
-            dynamicSummaryLabel.text = "\(String(format: "%.3f", cellDataArray[rowIndex].dynamicSummary)) %"
-            dynamicSummaryLabel.backgroundColor = UIColor.systemRed
-        } else {
-            dynamicSummaryLabel.text = "+\(String(format: "%.3f", cellDataArray[rowIndex].dynamicSummary)) %"
-            dynamicSummaryLabel.backgroundColor = UIColor.systemGreen
-        }
-        
+        countLabelsValue(daysCount: 31)
         dailySummaryLabel.layer.cornerRadius = 5
         dailySummaryLabel.layer.masksToBounds = true
         dynamicSummaryLabel.layer.cornerRadius = 5
         dynamicSummaryLabel.layer.masksToBounds = true
         
-        segmentController.selectedSegmentIndex = 1 
+        countDynamicSummary(daysCount: 31)
+        segmentController.selectedSegmentIndex = 1
     }
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
@@ -98,12 +93,29 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         switch selectedIndex {
         case 0:
             initChart(daysCount: 7)
+            countDynamicSummary(daysCount: 7)
+            countLabelsValue(daysCount: 7)
+            daysCounterLabel.text = "7"
+            dynamicDaysLabel.text = "7"
         case 1:
             initChart(daysCount: 31)
+            countDynamicSummary(daysCount: 31)
+            countLabelsValue(daysCount: 31)
+            daysCounterLabel.text = "31"
+            dynamicDaysLabel.text = "31"
         case 2:
             initChart(daysCount: 90)
+            countDynamicSummary(daysCount: 90)
+            countLabelsValue(daysCount: 90)
+
+            daysCounterLabel.text = "90"
+            dynamicDaysLabel.text = "90"
         case 3:
             initChart(daysCount: 365)
+            countDynamicSummary(daysCount: 365)
+            countLabelsValue(daysCount: 365)
+            daysCounterLabel.text = "365"
+            dynamicDaysLabel.text = "365"
         case 4:
             print("Empty")
         default:
@@ -137,6 +149,57 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.data = data
     }
     
+    func countDynamicSummary(daysCount: Int) {
+        guard let lastElement = cellDataArray[rowIndex].dataBase.prices.last?[1]
+        else { return }
+        guard let dynamicFirstElement = cellDataArray[rowIndex].dataBase.prices.suffix(daysCount).first?[1]
+        else { return }
+        
+        let dynamicDifference = lastElement - dynamicFirstElement
+        let dynamicSummary = dynamicDifference/dynamicFirstElement * 100
+        
+        if dynamicSummary < 0 {
+            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = .systemRed
+        } else {
+            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = .systemGreen
+        }
+    }
+    
+    func countLabelsValue(daysCount: Int){
+        var sum: Double = 0.0
+        var lowestValue: Double = Double.greatestFiniteMagnitude
+        var highestValue: Double = 0.0
+        
+        let startIndex = max(0, cellDataArray[rowIndex].dataBase.prices.count - daysCount)
+        let selectedArray = cellDataArray[rowIndex].dataBase.prices[startIndex..<cellDataArray[rowIndex].dataBase.prices.count]
+    
+        for priceData in selectedArray{
+            
+            let price = priceData[1]
+            sum += price
+            
+            for priceData in selectedArray{
+                let price = priceData[1]
+                
+                if price < lowestValue {
+                    lowestValue = price
+                }
+                
+                if price > highestValue {
+                    highestValue = price
+                }
+            }
+                        
+            }
+
+        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount))) USD"
+        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
+        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
+    }
+
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
         print("Selected value: \(entry.y)")
         guard let barChartView = chartView as? BarChartView else { return }
@@ -148,7 +211,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         let point = transformer.pixelForValues(x: xAxisValue, y: yAxisValue)
         let convertedPoint = barChartView.convert(point, to: self.view)
         
-        let text = "\(entry.y)"
+        let text = "\(Int(entry.y))"
         
         let popoverWith: CGFloat = 100
         let popoverHeight: CGFloat = 50

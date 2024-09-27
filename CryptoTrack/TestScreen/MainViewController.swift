@@ -6,7 +6,20 @@
 //
 
 import UIKit
-import Charts 
+import Charts
+import RealmSwift
+
+class ObjectForDataBase: Object{
+    
+    @Persisted var value: String = ""
+    @Persisted var number: Int = 0
+    
+    convenience init(value: String, number: Int){
+        self.init()
+        self.value = value
+        self.number = number
+    }
+}
 
 class MainViewController: UIViewController, ChartViewDelegate {
 
@@ -18,8 +31,46 @@ class MainViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpFirstChart()
-            
+        
+//        let configuration = Realm.Configuration(
+//            schemaVersion: 2,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if oldSchemaVersion < 2 {
+//                    migration.enumerateObjects(ofType: ObjectForDataBase.className()) {
+//                        oddObject, newObject in
+//                        if newObject!["value"] == nil {
+//                            newObject!["value"] = ""
+//                        }
+//                        if newObject!["number"] == nil {
+//                            newObject!["number"] = 0
+//                        }
+//                    }
+//                }
+//            }
+//        )
+//        Realm.Configuration.defaultConfiguration = configuration
+//        
+//        let realm = try! Realm()
+//        var bigData: [ObjectForDataBase] = []
+//       
+//        bigData.append(contentsOf: [
+//            ObjectForDataBase(value: "Value 1", number: 1),
+//            ObjectForDataBase(value: "Value 2", number: 2),
+//            ObjectForDataBase(value: "Value 3", number: 3),
+//            ObjectForDataBase(value: "Value 4", number: 4),
+//            ObjectForDataBase(value: "Value 5", number: 5),
+//        ])
+//        
+//        try! realm.write {
+//            realm.add(bigData)
+//        }
+//        let results = realm.objects(ObjectForDataBase.self)
+//        for object in results{
+//            print("\(object.value), \(object.number)")
+//        }
+// 
+//        print("Realm.Configuration.defaultConfiguration.fileURL = \(Realm.Configuration.defaultConfiguration.fileURL!)")
+//        
     }
     
     func setUpFirstChart(){

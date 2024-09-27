@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooL-xs-apA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooL-xs-apA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -471,7 +471,7 @@
                     <navigationItem key="navigationItem" title="Crypto tracker" id="aIC-QG-gTs">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="1L8-cy-ajL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ju7-U2-9UL">
-                                <rect key="frame" x="-37" y="-17" width="87" height="33"/>
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system">
@@ -614,14 +614,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="d:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gd-dY-KLV">
-                                <rect key="frame" x="238" y="603" width="16" height="22"/>
+                                <rect key="frame" x="228" y="603" width="16" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="834" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-s1-iK1">
-                                <rect key="frame" x="260" y="603" width="85" height="20"/>
+                                <rect key="frame" x="248" y="603" width="99" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
@@ -629,7 +629,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdv-QG-NQv">
-                                <rect key="frame" x="212" y="603" width="25" height="22"/>
+                                <rect key="frame" x="192" y="603" width="35" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -656,12 +656,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="uU4-Fc-Whe"/>
                     <connections>
-                        <outlet property="awgRateLabel" destination="KxI-RY-5ea" id="Eth-Ki-Sn4"/>
+                        <outlet property="avgRateLabel" destination="KxI-RY-5ea" id="Eth-Ki-Sn4"/>
                         <outlet property="centralBarView" destination="xrI-ND-7Eh" id="TAs-rI-Yox"/>
                         <outlet property="currencyNameLabel" destination="A45-xT-gnP" id="4Ib-a4-SxY"/>
                         <outlet property="currencyRateLabel" destination="DY0-Uf-YLu" id="bIy-up-tVL"/>
                         <outlet property="dailySummaryLabel" destination="Jiq-0b-QfO" id="8l2-Hc-55t"/>
                         <outlet property="daysCounterLabel" destination="BS8-jm-qvL" id="jGW-gG-BUR"/>
+                        <outlet property="dynamicDaysLabel" destination="Vdv-QG-NQv" id="69V-5E-p1h"/>
                         <outlet property="dynamicSummaryLabel" destination="aaH-s1-iK1" id="M7n-4h-BVR"/>
                         <outlet property="highRateLabel" destination="tZ2-L1-dIK" id="vCx-Mn-Fcy"/>
                         <outlet property="lowRateLabel" destination="UDZ-hQ-9ND" id="sfJ-fO-4ea"/>

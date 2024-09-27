@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E8BB42CA7057100049583 /* RealmData.swift */; };
 		3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */; };
 		3B4D53D12C5CD92400A3097D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */; };
 		3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D22C5CD92400A3097D /* MainViewController.swift */; };
@@ -21,10 +22,11 @@
 		3BD8EC1D2C6B715600348B9D /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */; };
 		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
 		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
-		CCC6B965BD56FF813B623B77 /* Pods_Money_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5975A3FA9CD2A4C683EA60D /* Pods_Money_Manager.framework */; };
+		D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0E8BB42CA7057100049583 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +43,11 @@
 		3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
 		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.debug.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.debug.xcconfig"; sourceTree = "<group>"; };
+		8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money Manager.release.xcconfig"; path = "Target Support Files/Pods-Money Manager/Pods-Money Manager.release.xcconfig"; sourceTree = "<group>"; };
-		D5975A3FA9CD2A4C683EA60D /* Pods_Money_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F58B3299B25103A78CE05B /* Pods-Money Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money Manager.debug.xcconfig"; path = "Target Support Files/Pods-Money Manager/Pods-Money Manager.debug.xcconfig"; sourceTree = "<group>"; };
+		FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.release.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC6B965BD56FF813B623B77 /* Pods_Money_Manager.framework in Frameworks */,
+				D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +120,7 @@
 				3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */,
 				3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */,
 				3BC2C98C2C8A00C200457C20 /* GlobalData.swift */,
+				3B0E8BB42CA7057100049583 /* RealmData.swift */,
 			);
 			path = "Network & DataSource";
 			sourceTree = "<group>";
@@ -143,6 +148,8 @@
 			children = (
 				E8F58B3299B25103A78CE05B /* Pods-Money Manager.debug.xcconfig */,
 				A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */,
+				6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */,
+				FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -150,7 +157,7 @@
 		D65DC84BD85AA00BB8C9C950 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D5975A3FA9CD2A4C683EA60D /* Pods_Money_Manager.framework */,
+				8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,15 +237,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Money Manager/Pods-Money Manager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Money Manager/Pods-Money Manager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Money Manager/Pods-Money Manager-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D7FCC53F24D2F5C947AEC50 /* [CP] Check Pods Manifest.lock */ = {
@@ -256,7 +263,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Money Manager-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CryptoTrack-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -271,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */,
+				3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */,
 				3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */,
 				3BD8EC1D2C6B715600348B9D /* CustomPopoverView.swift in Sources */,
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
@@ -427,7 +435,7 @@
 		};
 		3B4D53E02C5CD92600A3097D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8F58B3299B25103A78CE05B /* Pods-Money Manager.debug.xcconfig */;
+			baseConfigurationReference = 6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,7 +464,7 @@
 		};
 		3B4D53E12C5CD92600A3097D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */;
+			baseConfigurationReference = FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

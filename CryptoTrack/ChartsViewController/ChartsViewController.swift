@@ -27,8 +27,6 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         for (index, cellData) in GlobalData.cellDataArray.enumerated(){
             self.initChart(for: &GlobalData.cellDataArray[index])
-            print("index = \(index)")
-            print("cellData = \(cellData)")
         }
     }
     
@@ -49,13 +47,18 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
 
     }
     
-    private func loadData(){
+    private func loadData() {
         let dispatchGroup = DispatchGroup()
-        
+        hasErrorOccurred = false
+
         for (index, cellData) in GlobalData.cellDataArray.enumerated() {
             dispatchGroup.enter()
+            
             NetworkManager.shared.getCryptocurrencyRate(cellData.typeOfCell) { [weak self] name, jsonResponse, error in
-                guard let self = self else { return }
+                guard let self = self else {
+                    dispatchGroup.leave()
+                    return
+                }
                 
                 if let name = name {
                     GlobalData.cellDataArray[index].currencyName = name
@@ -63,70 +66,63 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                 if let response = jsonResponse {
                     GlobalData.cellDataArray[index].dataBase = response
                     self.initChart(for: &GlobalData.cellDataArray[index])
-                    
                 } else if let error = error {
-                    hasErrorOccurred = true
-                    print("Error: \(error.localizedDescription)")
+                    self.hasErrorOccurred = true
+                    print("Error in getCryptocurrencyRate: \(error.localizedDescription)")
                 }
                 
                 dispatchGroup.leave()
             }
             
             dispatchGroup.enter()
-            NetworkManager.shared.getMarketCap(cellData.typeOfCell) { [weak self] jsonResponse, error in
-                guard let self = self else { return }
-                
+            
+            NetworkManager.shared.getMarketCap(cellData.typeOfCell) { jsonResponse, error in
                 if let response = jsonResponse {
                     let marketCap = response.usdMarketCap
                     GlobalData.cellDataArray[index].marketCap = Int(marketCap)
-                    print("MarketCap = \(String(describing: jsonResponse))")
+                    print("MarketCap = \(String(describing: response))")
                 } else if let error = error {
-                    print(error.localizedDescription)
+                    self.hasErrorOccurred = true
+                    print("Error in getMarketCap: \(error.localizedDescription)")
                 }
                 
                 dispatchGroup.leave()
             }
-            
-            dispatchGroup.notify(queue: .main){
-                if self.hasErrorOccurred == false {
-                    self.collectionView.reloadData()
-                } else {
-                    self.alert.showAlert(title: "Error", message: "Failed to load all data from API, please try again later", on: self)
-
-                }
-            }
         }
         
+        dispatchGroup.notify(queue: .main) {
+            if self.hasErrorOccurred == false {
+                self.collectionView.reloadData()
+            } else {
+                self.alert.showAlert(title: "Error", message: "Failed to load all data from API, please try again later", on: self)
+            }
+        }
     }
     
     func initChart(for cellData: inout CellData){
         var entries = [BarChartDataEntry]()
-        var testEntries = [BarChartDataEntry]()
+        let shortDataBase = cellData.dataBase.prices.suffix(31)
         var sum: Double = 0.0
         var lowestValue: Double = Double.greatestFiniteMagnitude
         var highestValue: Double = 0.0
         
-        guard let lastElement = cellData.dataBase.prices.last?[1] else { return }
-        guard let thirtyFirstFromEnd = cellData.dataBase.prices.suffix(31).first?[1] else { return }
-        
-        print("lastElement = \(lastElement)")
-        print("thirtyFirstFromEnd = \(thirtyFirstFromEnd)")
+        guard let lastElement = cellData.dataBase.prices.last?[1]
+        else { return }
+        guard let thirtyFirstFromEnd = cellData.dataBase.prices.suffix(31).first?[1]
+        else { return }
         
         let secondLastElementIndex = cellData.dataBase.prices.count - 2
         guard cellData.dataBase.prices.indices.contains(secondLastElementIndex)
         else { return }
         let secondLastElement = cellData.dataBase.prices[secondLastElementIndex][1]
+
         
-        print("secondLastElement = \(secondLastElement)")
-        
-        for (index, priceData) in cellData.dataBase.prices.enumerated(){
+        for (index, priceData) in shortDataBase.enumerated(){
             
             let price = round(priceData[1])
             entries.append(BarChartDataEntry(x: Double(index), y: price))
             sum += price
-            
-            testEntries = Array(entries.suffix(31))
-            
+                        
             if priceData[1] < lowestValue{
                 lowestValue = priceData[1]
             }
@@ -136,7 +132,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-        cellData.averageValue = sum / Double(cellData.dataBase.prices.count)
+        cellData.averageValue = sum / Double(shortDataBase.count)
         cellData.lowestValue = lowestValue
         cellData.highestValue = highestValue
         
@@ -151,7 +147,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
             cellData.currencyRate = lastPrice
         }
         
-        let dataSet = BarChartDataSet(entries: testEntries, label: "\(cellData.typeOfCell)")
+        let dataSet = BarChartDataSet(entries: entries, label: "\(cellData.typeOfCell)")
         
         if cellData.dailySummary < 0 {
             dataSet.colors = [UIColor.systemRed]
@@ -163,7 +159,6 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         
         collectionView.reloadData()
     }
-    
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
         print("Selected value: \(entry.y)")
