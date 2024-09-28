@@ -25,7 +25,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        for (index, cellData) in GlobalData.cellDataArray.enumerated(){
+        for (index, _) in GlobalData.cellDataArray.enumerated(){
             self.initChart(for: &GlobalData.cellDataArray[index])
         }
     }
@@ -249,6 +249,24 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         selectedIndexPath = indexPath
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let chartCell = cell as? ChartCollectionViewCell else {
+//            return
+//        }
+//        
+//        let cellData = GlobalData.cellDataArray[indexPath.row]
+//        configureCell(chartCell, with: cellData)
+//        
+//    }
+    
+//    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]){
+//        for indexPath in indexPaths {
+//            let cellData = GlobalData.cellDataArray[indexPath.row]
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chartCell", for: indexPath) as! ChartCollectionViewCell
+//            configureCell(cell, with: cellData)
+//        }
+//    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView == collectionView {

@@ -19,7 +19,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2OY-pg-jvH" kind="relationship" relationship="viewControllers" id="202-Mf-1ZM"/>
                         <segue destination="dca-xj-uSx" kind="relationship" relationship="viewControllers" id="IVK-Do-8G4"/>
                         <segue destination="Vfj-di-Lus" kind="relationship" relationship="viewControllers" id="OaV-cb-mZA"/>
                         <segue destination="J9m-kc-IGl" kind="relationship" relationship="viewControllers" id="9Dw-D5-mqB"/>
@@ -56,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmm-KX-mYM">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35B-CJ-AY0">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="2500"/>
@@ -215,13 +214,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5T-Nw-dJS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2571.7557251908397" y="-1089.4366197183099"/>
+            <point key="canvasLocation" x="3146" y="-1089"/>
         </scene>
-        <!--Item-->
+        <!--Charts-->
         <scene sceneID="3yp-tx-61G">
             <objects>
                 <navigationController id="dca-xj-uSx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mDs-Vg-kVK"/>
+                    <tabBarItem key="tabBarItem" title="Charts" image="chart.bar" catalog="system" selectedImage="chart.bar" id="mDs-Vg-kVK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bsh-eB-6HL">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -234,11 +233,11 @@
             </objects>
             <point key="canvasLocation" x="1581" y="-385"/>
         </scene>
-        <!--Item-->
+        <!--Info -->
         <scene sceneID="ohD-Li-qmH">
             <objects>
                 <navigationController id="Vfj-di-Lus" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="jHX-g9-3v3"/>
+                    <tabBarItem key="tabBarItem" title="Info " image="bookmark" catalog="system" selectedImage="bookmark" id="jHX-g9-3v3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wp6-i2-uvp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -251,11 +250,11 @@
             </objects>
             <point key="canvasLocation" x="1581" y="356"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="EHf-Ca-cvd">
             <objects>
                 <navigationController id="J9m-kc-IGl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oc1-L3-T1E"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="oc1-L3-T1E"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4GE-09-wRG">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -468,18 +467,7 @@
                         <viewLayoutGuide key="safeArea" id="L57-fV-tCi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Crypto tracker" id="aIC-QG-gTs">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="1L8-cy-ajL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ju7-U2-9UL">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system">
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                </buttonConfiguration>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Crypto tracker" id="aIC-QG-gTs"/>
                     <connections>
                         <outlet property="collectionView" destination="htQ-lM-0Bd" id="5Dn-a7-Xkm"/>
                         <segue destination="uCJ-hy-2rj" kind="show" identifier="showDetail" id="FHC-c3-feo"/>
@@ -708,9 +696,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="chart.bar" catalog="system" width="128" height="89"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="gear" catalog="system" width="128" height="122"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
