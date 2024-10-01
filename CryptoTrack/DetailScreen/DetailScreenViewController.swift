@@ -97,27 +97,36 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
             countLabelsValue(daysCount: 7)
             daysCounterLabel.text = "7"
             dynamicDaysLabel.text = "7"
+            popover.hide()
+            centralBarView.highlightValues(nil)
         case 1:
             initChart(daysCount: 31)
             countDynamicSummary(daysCount: 31)
             countLabelsValue(daysCount: 31)
             daysCounterLabel.text = "31"
             dynamicDaysLabel.text = "31"
+            popover.hide()
+            centralBarView.highlightValues(nil)
         case 2:
             initChart(daysCount: 90)
             countDynamicSummary(daysCount: 90)
             countLabelsValue(daysCount: 90)
-
             daysCounterLabel.text = "90"
             dynamicDaysLabel.text = "90"
+            popover.hide()
+            centralBarView.highlightValues(nil)
         case 3:
             initChart(daysCount: 365)
             countDynamicSummary(daysCount: 365)
             countLabelsValue(daysCount: 365)
             daysCounterLabel.text = "365"
             dynamicDaysLabel.text = "365"
+            popover.hide()
+            centralBarView.highlightValues(nil)
         case 4:
             print("Empty")
+            popover.hide()
+            centralBarView.highlightValues(nil)
         default:
             break
         }

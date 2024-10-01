@@ -11,6 +11,7 @@ import Charts
 class ChartsViewController: UIViewController, ChartViewDelegate {
     
     var hasErrorOccurred = false
+    var isInitialLayoutDone = false
     var selectedIndexPath: IndexPath?
     
     private var popover = CustomPopoverView()
@@ -26,11 +27,14 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let originalSize = collectionView.frame.size
-        collectionView.frame.size.height = collectionView.contentSize.height
-        
-        collectionView.layoutIfNeeded()
-        collectionView.frame.size = originalSize
+        if isInitialLayoutDone == false{
+            let originalSize = collectionView.frame.size
+            collectionView.frame.size.height = collectionView.contentSize.height
+            
+            collectionView.layoutIfNeeded()
+            collectionView.frame.size = originalSize
+            isInitialLayoutDone = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
