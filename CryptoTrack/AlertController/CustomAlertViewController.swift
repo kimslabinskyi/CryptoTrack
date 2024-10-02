@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CustomAlertDelegate {
-    func buttonTapped()
+    func customAlertAction()
 }
 
 class CustomAlertViewController: UIViewController {
@@ -53,7 +53,7 @@ class CustomAlertViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
-        delegate?.buttonTapped()
+        delegate?.customAlertAction()
         self.dismiss(animated: true, completion: nil)
     }
     

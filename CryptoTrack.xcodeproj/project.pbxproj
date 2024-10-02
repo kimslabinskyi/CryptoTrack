@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E8BB42CA7057100049583 /* RealmData.swift */; };
+		3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */; };
+		3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */; };
 		3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */; };
 		3B4D53D12C5CD92400A3097D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */; };
 		3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D22C5CD92400A3097D /* MainViewController.swift */; };
@@ -15,11 +17,16 @@
 		3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53D72C5CD92600A3097D /* Assets.xcassets */; };
 		3B4D53DB2C5CD92600A3097D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53DA2C5CD92600A3097D /* Base */; };
 		3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */; };
+		3B5D9BF72CAD4473007275E9 /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */; };
+		3B5D9BF82CAD4473007275E9 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */; };
+		3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */; };
+		3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */; };
+		3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */; };
+		3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */; };
 		3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9BBC432C91902000A7C09D /* AlertController.swift */; };
 		3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */; };
 		3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */; };
 		3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2C98C2C8A00C200457C20 /* GlobalData.swift */; };
-		3BD8EC1D2C6B715600348B9D /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */; };
 		3BDD3E2E2CABF28000451C1F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */; };
 		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
 		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
@@ -28,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		3B0E8BB42CA7057100049583 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
+		3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyViewController.swift; sourceTree = "<group>"; };
+		3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,11 +46,16 @@
 		3B4D53DA2C5CD92600A3097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4D53DC2C5CD92600A3097D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
+		3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
+		3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
+		3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3B9BBC432C91902000A7C09D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
 		3BC2C98C2C8A00C200457C20 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
-		3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
 		3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +104,10 @@
 				3BFF15E12C627EAE00BB3B62 /* Network & DataSource */,
 				3BFF15E22C627ECA00BB3B62 /* TestScreen */,
 				3BFF15E52C627EFD00BB3B62 /* ChartsViewController */,
+				3B5D9BF62CAD4473007275E9 /* CurrencyList */,
 				3BBDDC5B2C85B6EE00A6914A /* DetailScreen */,
+				3B5D9BFD2CAD45F6007275E9 /* InfoViewController */,
+				3B5D9BFA2CAD4478007275E9 /* PopoverView */,
 				3B9BBC452C91903600A7C09D /* AlertController */,
 				3B4D53D42C5CD92400A3097D /* Main.storyboard */,
 				3B4D53D72C5CD92600A3097D /* Assets.xcassets */,
@@ -100,11 +117,38 @@
 			path = CryptoTrack;
 			sourceTree = "<group>";
 		};
+		3B5D9BF62CAD4473007275E9 /* CurrencyList */ = {
+			isa = PBXGroup;
+			children = (
+				3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */,
+				3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */,
+			);
+			path = CurrencyList;
+			sourceTree = "<group>";
+		};
+		3B5D9BFA2CAD4478007275E9 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
+		3B5D9BFD2CAD45F6007275E9 /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */,
+				3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */,
+			);
+			path = InfoViewController;
+			sourceTree = "<group>";
+		};
 		3B9BBC452C91903600A7C09D /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
 				3B9BBC432C91902000A7C09D /* AlertController.swift */,
 				3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */,
+				3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */,
 			);
 			path = AlertController;
 			sourceTree = "<group>";
@@ -113,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */,
+				3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */,
+				3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -141,7 +187,6 @@
 			children = (
 				3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */,
 				3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */,
-				3BD8EC1C2C6B715600348B9D /* CustomPopoverView.swift */,
 			);
 			path = ChartsViewController;
 			sourceTree = "<group>";
@@ -281,11 +326,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */,
+				3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */,
 				3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */,
 				3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */,
-				3BD8EC1D2C6B715600348B9D /* CustomPopoverView.swift in Sources */,
+				3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */,
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
+				3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */,
+				3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */,
+				3B5D9BF72CAD4473007275E9 /* CurrencyListTableViewCell.swift in Sources */,
+				3B5D9BF82CAD4473007275E9 /* CurrencyListViewController.swift in Sources */,
 				3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */,
+				3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */,
+				3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */,
 				3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */,
 				3BDD3E2E2CABF28000451C1F /* CustomAlertViewController.swift in Sources */,
 				3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */,

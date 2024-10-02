@@ -262,19 +262,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if scrollView == collectionView {
-//            popover.hide()
-//            for cell in collectionView.visibleCells {
-//                if let chartCell = cell as? ChartCollectionViewCell {
-//                    chartCell.deselectElement()
-//                }
-//            }
-//        }
-//        
-//    }
-    
-    func buttonTapped() {
+    func customAlertAction() {
         print("Activate custom alert")
     }
     

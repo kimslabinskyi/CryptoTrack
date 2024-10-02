@@ -35,9 +35,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     
     private var popover = CustomPopoverView()
     private let alertController = AlertController()
-    private var customAlert: CustomAlertViewController?
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -85,13 +83,9 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         countDynamicSummary(daysCount: 31)
         segmentController.selectedSegmentIndex = 1
         
-        customAlert = storyboard?.instantiateViewController(withIdentifier: "CustomAlertView") as? CustomAlertViewController
-        customAlert?.delegate = self
-        customAlert?.modalPresentationStyle = .overCurrentContext
-        customAlert?.providesPresentationContextTransitionStyle = true
-        customAlert?.definesPresentationContext = true
-        customAlert?.modalTransitionStyle = .crossDissolve
     }
+    
+   
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
@@ -133,7 +127,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             print("Empty")
             popover.hide()
             centralBarView.highlightValues(nil)
-            self.present(customAlert!, animated: true, completion: nil)
+            AlertManager.showCustomAlert(on: self, delegate: self)
         default:
             break
         }
@@ -242,7 +236,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         popover.hide()
     }
 
-    func buttonTapped() {
+    func customAlertAction() {
         print("Activate custom alert")
     }
     
