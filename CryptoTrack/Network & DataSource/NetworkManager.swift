@@ -104,7 +104,7 @@ class NetworkManager {
         let realm = try! Realm()
         
         if let cachedMarketCap = realm.object(ofType: RealmCryptocurrencyMarketCap.self, forPrimaryKey: cryptocurrency.name) {
-              if abs(cachedMarketCap.lastUpdated.timeIntervalSinceNow) < 100 {
+              if abs(cachedMarketCap.lastUpdated.timeIntervalSinceNow) < 1200 {
                   if let data = cachedMarketCap.data {
                       do {
                           let marketCapResponse = try JSONDecoder().decode(CryptocurrencyMarketCapResponse.self, from: data)

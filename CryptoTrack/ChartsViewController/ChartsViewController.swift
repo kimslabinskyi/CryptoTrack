@@ -8,14 +8,13 @@
 import UIKit
 import Charts
 
-class ChartsViewController: UIViewController, ChartViewDelegate {
-    
+class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDelegate {
     var hasErrorOccurred = false
     var isInitialLayoutDone = false
     var selectedIndexPath: IndexPath?
     
     private var popover = CustomPopoverView()
-    private let alert = AlertController() 
+    private let alert = AlertController()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -263,16 +262,20 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if scrollView == collectionView {
-            popover.hide()
-            for cell in collectionView.visibleCells {
-                if let chartCell = cell as? ChartCollectionViewCell {
-                    chartCell.deselectElement()
-                }
-            }
-        }
-        
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        if scrollView == collectionView {
+//            popover.hide()
+//            for cell in collectionView.visibleCells {
+//                if let chartCell = cell as? ChartCollectionViewCell {
+//                    chartCell.deselectElement()
+//                }
+//            }
+//        }
+//        
+//    }
+    
+    func buttonTapped() {
+        print("Activate custom alert")
     }
     
 }

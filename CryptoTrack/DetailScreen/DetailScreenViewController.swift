@@ -10,8 +10,7 @@ import Charts
 
 
 
-class DetailScreenViewController: UIViewController, ChartViewDelegate {
-    
+class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAlertDelegate {
     @IBOutlet weak var centralBarView: BarChartView!
     
     @IBOutlet weak var currencyNameLabel: UILabel!
@@ -36,6 +35,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
     
     private var popover = CustomPopoverView()
     private let alertController = AlertController()
+    private var customAlert: CustomAlertViewController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +60,12 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
         
-       
+    
     }
     
     private func setUpLabels(){
         currencyRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].currencyRate) + " USD"
         currencyNameLabel.text = cellDataArray[rowIndex].currencyName
-//        highRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].highestValue) + " USD"
-//        lowRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].lowestValue) + " USD"
         marketCapLabel.text = String(cellDataArray[rowIndex].marketCap)
         
         if cellDataArray[rowIndex].dailySummary < 0 {
@@ -85,6 +84,13 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         
         countDynamicSummary(daysCount: 31)
         segmentController.selectedSegmentIndex = 1
+        
+        customAlert = storyboard?.instantiateViewController(withIdentifier: "CustomAlertView") as? CustomAlertViewController
+        customAlert?.delegate = self
+        customAlert?.modalPresentationStyle = .overCurrentContext
+        customAlert?.providesPresentationContextTransitionStyle = true
+        customAlert?.definesPresentationContext = true
+        customAlert?.modalTransitionStyle = .crossDissolve
     }
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
@@ -127,6 +133,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
             print("Empty")
             popover.hide()
             centralBarView.highlightValues(nil)
+            self.present(customAlert!, animated: true, completion: nil)
         default:
             break
         }
@@ -235,6 +242,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate {
         popover.hide()
     }
 
-    
+    func buttonTapped() {
+        print("Activate custom alert")
+    }
     
 }
