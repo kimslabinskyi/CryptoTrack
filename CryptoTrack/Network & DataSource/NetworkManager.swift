@@ -44,7 +44,7 @@ class NetworkManager {
         let realm = try! Realm()
         
         if let cachedRate = realm.object(ofType: RealmCryptocurrencyRate.self, forPrimaryKey: cryptocurrency.name) {
-            if abs(cachedRate.lastUpdated.timeIntervalSinceNow) < 100 {
+            if abs(cachedRate.lastUpdated.timeIntervalSinceNow) < 1200 {
                 if let data = cachedRate.data {
                     do {
                         let rate = try JSONDecoder().decode(CryptocurrencyRate.self, from: data)

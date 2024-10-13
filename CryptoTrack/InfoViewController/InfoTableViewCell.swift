@@ -9,8 +9,12 @@ import UIKit
 
 class InfoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var textView: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        textView.isSelectable = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
