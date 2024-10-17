@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import CoreHaptics
 
 class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDelegate {
     var hasErrorOccurred = false
@@ -15,6 +16,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
     
     private var popover = CustomPopoverView()
     private let alert = AlertController()
+    private let generator = UIImpactFeedbackGenerator(style: .rigid)
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -111,6 +114,19 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
         }
     }
     
+    private func showAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func doHapticFeedback() {
+        if SettingsViewController.isHapticFeedbackEnabled == true {
+            generator.impactOccurred()
+        }
+    }
+    
+    
     func initChart(for cellData: inout CellData){
         var entries = [BarChartDataEntry]()
         let shortDataBase = cellData.dataBase.prices.suffix(31)
@@ -198,16 +214,6 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
         popover.hide()
     }
     
-    
-    
-    private func showAlert(title: String, message: String){
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
 }
 
 extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -258,6 +264,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        doHapticFeedback()
         selectedIndexPath = indexPath
         performSegue(withIdentifier: "showDetail", sender: nil)
     }

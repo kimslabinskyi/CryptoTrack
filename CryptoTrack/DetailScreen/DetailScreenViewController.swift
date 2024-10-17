@@ -35,6 +35,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     
     private var popover = CustomPopoverView()
     private let alertController = AlertController()
+    private let generator = UIImpactFeedbackGenerator(style: .soft)
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +86,15 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         
     }
     
-   
+    private func doHapticFeedback(){
+        if SettingsViewController.isHapticFeedbackEnabled == true {
+            generator.impactOccurred()
+        }
+    }
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
+        doHapticFeedback()
         
         switch selectedIndex {
         case 0:
@@ -211,7 +217,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
 
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
-        print("Selected value: \(entry.y)")
+        doHapticFeedback()
         guard let barChartView = chartView as? BarChartView else { return }
         
         let xAxisValue = entry.x
