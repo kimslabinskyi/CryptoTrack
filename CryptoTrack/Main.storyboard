@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooL-xs-apA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooL-xs-apA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -968,12 +968,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haptics:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZ5-dG-Yak">
-                                <rect key="frame" x="22" y="172" width="94" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="g8G-UO-NKF"/>
-                                    <constraint firstAttribute="width" constant="94" id="pRr-KG-V9W"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Haptics:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZ5-dG-Yak">
+                                <rect key="frame" x="27" y="530" width="94" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -988,12 +985,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-mn-Anv">
-                                <rect key="frame" x="133" y="176" width="49" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="w1N-ii-d0v"/>
-                                    <constraint firstAttribute="height" constant="31" id="zOY-PB-YIO"/>
-                                </constraints>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-mn-Anv">
+                                <rect key="frame" x="129" y="534" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="doSwitch:" destination="f41-Lg-SJq" eventType="valueChanged" id="Zgg-fK-dEH"/>
                                 </connections>
@@ -1015,13 +1009,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i3d-Bh-BZy" firstAttribute="top" secondItem="tlR-rF-MZ4" secondAttribute="bottom" constant="22.670000000000002" id="0VQ-8T-gxs"/>
-                            <constraint firstItem="CZ5-dG-Yak" firstAttribute="leading" secondItem="xRe-vc-V7Y" secondAttribute="leading" constant="22" id="8CK-1E-Ww5"/>
                             <constraint firstItem="xRe-vc-V7Y" firstAttribute="bottom" secondItem="i3d-Bh-BZy" secondAttribute="bottom" constant="59" id="Qtd-B3-5HG"/>
-                            <constraint firstItem="G1x-mn-Anv" firstAttribute="top" secondItem="xRe-vc-V7Y" secondAttribute="top" constant="73" id="cXe-aM-YgK"/>
-                            <constraint firstItem="G1x-mn-Anv" firstAttribute="leading" secondItem="CZ5-dG-Yak" secondAttribute="trailing" constant="17" id="mfd-lf-pRJ"/>
                             <constraint firstItem="i3d-Bh-BZy" firstAttribute="centerX" secondItem="So9-br-m41" secondAttribute="centerX" id="qKh-Wc-QFc"/>
                             <constraint firstItem="tlR-rF-MZ4" firstAttribute="centerX" secondItem="So9-br-m41" secondAttribute="centerX" id="sSI-VH-CI5"/>
-                            <constraint firstItem="CZ5-dG-Yak" firstAttribute="top" secondItem="xRe-vc-V7Y" secondAttribute="top" constant="69" id="tcm-Fm-dPd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="v47-HC-Ikv"/>

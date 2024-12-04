@@ -11,6 +11,8 @@ import MessageUI
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var hapticSwitch: UISwitch!
+    
+    
     static var isHapticFeedbackEnabled = UserDefaults().bool(forKey: "isHapticFeedbackEnabled")
     
     override func viewDidLoad() {

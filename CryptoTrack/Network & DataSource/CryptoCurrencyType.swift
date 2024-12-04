@@ -13,7 +13,7 @@ enum CryptoCurrencyType {
     case bnb
     case xrp //not working
     case ada //not working
-    case sol
+    case sol 
     case dot //not working
     case doge //not working
     case ltc //not working
