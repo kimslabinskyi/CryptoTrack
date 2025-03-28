@@ -48,14 +48,11 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         centralBarView.delegate = self
         centralBarView.isUserInteractionEnabled = true
         
-        centralBarView.scaleXEnabled = false
         centralBarView.scaleYEnabled = false
         centralBarView.pinchZoomEnabled = false
         centralBarView.doubleTapToZoomEnabled = false
-        centralBarView.xAxis.drawLabelsEnabled = false
         
         centralBarView.xAxis.labelPosition = .bottom
-        centralBarView.xAxis.drawGridLinesEnabled = false
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
         

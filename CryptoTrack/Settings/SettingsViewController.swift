@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.bool(forKey: "isHapticFeedbackEnabled") == true {
+        if UserDefaults.standard.bool(forKey: "isHapticFeedbackEnabled") {
             hapticSwitch.isOn = true
         } else {
             hapticSwitch.isOn = false

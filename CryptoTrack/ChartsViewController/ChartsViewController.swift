@@ -59,7 +59,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
     
     private func setUp(){
         collectionView.delaysContentTouches = false
-
+        collectionView.backgroundColor = UIColor.systemBackground      
     }
     
     private func loadData() {
