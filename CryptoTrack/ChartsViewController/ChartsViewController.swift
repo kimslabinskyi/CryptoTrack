@@ -188,32 +188,6 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
         collectionView.reloadData()
     }
     
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
-        print("Selected value: \(entry.y)")
-        guard let barChartView = chartView as? BarChartView else { return }
-        
-        let xAxisValue = entry.x
-        let yAxisValue = entry.y
-        
-        let transformer = barChartView.getTransformer(forAxis: .left)
-        let point = transformer.pixelForValues(x: xAxisValue, y: yAxisValue)
-        let convertedPoint = barChartView.convert(point, to: self.view)
-        
-        let text = "\(entry.y)"
-        
-        let popoverWith: CGFloat = 100
-        let popoverHeight: CGFloat = 50
-        let popoverX = convertedPoint.x - popoverWith / 2
-        let popoverY = convertedPoint.y - popoverHeight - 8
-        
-        popover.setup(with: text)
-        popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
-    }
-    
-    func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        popover.hide()
-    }
-    
 }
 
 extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -231,7 +231,14 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let popoverX = convertedPoint.x - popoverWith / 2
         let popoverY = convertedPoint.y - popoverHeight - 8
         
-        popover.setup(with: text)
+//        let date = Date()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "dd.MM.yyyy"
+//        let dateString = formatter.string(from: date)
+//        print("dateString = \(dateString)")
+        print("entry x = \(xAxisValue), entry y = \(yAxisValue)")
+        
+        popover.setup(date: "Test date", text: text)
         popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
     }
     
