@@ -27,6 +27,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     @IBOutlet weak var segmentController: UISegmentedControl!
     
     var cellDataArray = GlobalData.cellDataArray
+    var stringDateArray: [String] = []
     var indexPath: IndexPath?
     var dynamicSummary: Double = 0.0
     var rowIndex: Int {
@@ -56,7 +57,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
         
-    
+        let dateManager = DateManager()
+        stringDateArray = dateManager.generateDateArray()
     }
     
     private func setUpLabels(){
@@ -88,6 +90,90 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             generator.impactOccurred()
         }
     }
+    
+    private func initChart(daysCount: Int) {
+        var entries = [BarChartDataEntry]()
+        var filteredEntries = [BarChartDataEntry]()
+        
+        for (index, priceData) in cellDataArray[rowIndex].dataBase.prices.enumerated() {
+            let price = round(priceData[1])
+            entries.append(BarChartDataEntry(x: Double(index), y: price))
+            filteredEntries = Array(entries.suffix(daysCount))
+        }
+        
+        let dataSet = BarChartDataSet(entries: filteredEntries, label: cellDataArray[rowIndex].currencyName)
+        
+        if cellDataArray[rowIndex].dailySummary < 0 {
+            dataSet.colors = [UIColor.systemRed]
+        } else {
+            dataSet.colors = [UIColor.systemGreen]
+        }
+        
+        dataSet.drawValuesEnabled = false
+        
+        
+        let data = BarChartData(dataSet: dataSet)
+        centralBarView.data = data
+        
+        
+        let xAxis = self.centralBarView.xAxis
+        xAxis.valueFormatter = CustomXAxisFormatter(labels: stringDateArray)
+        xAxis.granularity = 1
+        xAxis.labelPosition = .bottom
+        
+        self.centralBarView.notifyDataSetChanged()
+    }
+    
+    private func countDynamicSummary(daysCount: Int) {
+        guard let lastElement = cellDataArray[rowIndex].dataBase.prices.last?[1]
+        else { return }
+        guard let dynamicFirstElement = cellDataArray[rowIndex].dataBase.prices.suffix(daysCount).first?[1]
+        else { return }
+        
+        let dynamicDifference = lastElement - dynamicFirstElement
+        let dynamicSummary = dynamicDifference/dynamicFirstElement * 100
+        
+        if dynamicSummary < 0 {
+            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = .systemRed
+        } else {
+            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.backgroundColor = .systemGreen
+        }
+    }
+    
+    private func countLabelsValue(daysCount: Int){
+        var sum: Double = 0.0
+        var lowestValue: Double = Double.greatestFiniteMagnitude
+        var highestValue: Double = 0.0
+        
+        let startIndex = max(0, cellDataArray[rowIndex].dataBase.prices.count - daysCount)
+        let selectedArray = cellDataArray[rowIndex].dataBase.prices[startIndex..<cellDataArray[rowIndex].dataBase.prices.count]
+    
+        for priceData in selectedArray{
+            
+            let price = priceData[1]
+            sum += price
+            
+            for priceData in selectedArray{
+                let price = priceData[1]
+                
+                if price < lowestValue {
+                    lowestValue = price
+                }
+                
+                if price > highestValue {
+                    highestValue = price
+                }
+            }
+                        
+            }
+
+        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount))) USD"
+        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
+        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
+    }
+
     
     @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
@@ -136,83 +222,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         }
     }
     
-    func initChart(daysCount: Int) {
-        var entries = [BarChartDataEntry]()
-        var testEntries = [BarChartDataEntry]()
-        
-        for (index, priceData) in cellDataArray[rowIndex].dataBase.prices.enumerated() {
-            let price = round(priceData[1])
-            entries.append(BarChartDataEntry(x: Double(index), y: price))
-            testEntries = Array(entries.suffix(daysCount))
-        }
-        
-        let dataSet = BarChartDataSet(entries: testEntries, label: cellDataArray[rowIndex].currencyName)
-        
-        if cellDataArray[rowIndex].dailySummary < 0 {
-            dataSet.colors = [UIColor.systemRed]
-        } else {
-            dataSet.colors = [UIColor.systemGreen]
-        }
-        
-        dataSet.drawValuesEnabled = false
-        
-        
-        let data = BarChartData(dataSet: dataSet)
-        
-        centralBarView.data = data
-    }
-    
-    func countDynamicSummary(daysCount: Int) {
-        guard let lastElement = cellDataArray[rowIndex].dataBase.prices.last?[1]
-        else { return }
-        guard let dynamicFirstElement = cellDataArray[rowIndex].dataBase.prices.suffix(daysCount).first?[1]
-        else { return }
-        
-        let dynamicDifference = lastElement - dynamicFirstElement
-        let dynamicSummary = dynamicDifference/dynamicFirstElement * 100
-        
-        if dynamicSummary < 0 {
-            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
-            dynamicSummaryLabel.backgroundColor = .systemRed
-        } else {
-            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
-            dynamicSummaryLabel.backgroundColor = .systemGreen
-        }
-    }
-    
-    func countLabelsValue(daysCount: Int){
-        var sum: Double = 0.0
-        var lowestValue: Double = Double.greatestFiniteMagnitude
-        var highestValue: Double = 0.0
-        
-        let startIndex = max(0, cellDataArray[rowIndex].dataBase.prices.count - daysCount)
-        let selectedArray = cellDataArray[rowIndex].dataBase.prices[startIndex..<cellDataArray[rowIndex].dataBase.prices.count]
-    
-        for priceData in selectedArray{
-            
-            let price = priceData[1]
-            sum += price
-            
-            for priceData in selectedArray{
-                let price = priceData[1]
-                
-                if price < lowestValue {
-                    lowestValue = price
-                }
-                
-                if price > highestValue {
-                    highestValue = price
-                }
-            }
-                        
-            }
-
-        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount))) USD"
-        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
-        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
-    }
-
-    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
         doHapticFeedback()
         guard let barChartView = chartView as? BarChartView else { return }
@@ -230,15 +239,10 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let popoverHeight: CGFloat = 50
         let popoverX = convertedPoint.x - popoverWith / 2
         let popoverY = convertedPoint.y - popoverHeight - 8
-        
-//        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd.MM.yyyy"
-//        let dateString = formatter.string(from: date)
-//        print("dateString = \(dateString)")
+    
         print("entry x = \(xAxisValue), entry y = \(yAxisValue)")
         
-        popover.setup(date: "Test date", text: text)
+        popover.setup(date: String(xAxisValue), text: text)
         popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
     }
     

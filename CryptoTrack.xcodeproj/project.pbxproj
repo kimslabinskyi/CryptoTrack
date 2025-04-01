@@ -10,6 +10,7 @@
 		3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E8BB42CA7057100049583 /* RealmData.swift */; };
 		3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */; };
 		3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */; };
+		3B2E43302D9AA4B700EC721A /* CustomXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */; };
 		3B426A3F2CBBBBC9006F4F23 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */; };
 		3B426A442CBBCC54006F4F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B426A432CBBCC54006F4F23 /* Main.storyboard */; };
 		3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 		3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */; };
 		3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */; };
 		3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */; };
+		3B8380FC2D9C071500F2222A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8380FB2D9C070E00F2222A /* DateManager.swift */; };
 		3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9BBC432C91902000A7C09D /* AlertController.swift */; };
 		3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */; };
 		3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */; };
@@ -38,6 +40,7 @@
 		3B0E8BB42CA7057100049583 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyViewController.swift; sourceTree = "<group>"; };
 		3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomXAxisFormatter.swift; sourceTree = "<group>"; };
 		3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3B426A432CBBCC54006F4F23 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +57,7 @@
 		3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3B8380FB2D9C070E00F2222A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		3B9BBC432C91902000A7C09D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */,
 				3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */,
 				3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */,
+				3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */,
+				3B8380FB2D9C070E00F2222A /* DateManager.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -298,9 +304,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -336,7 +346,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8380FC2D9C071500F2222A /* DateManager.swift in Sources */,
 				3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */,
+				3B2E43302D9AA4B700EC721A /* CustomXAxisFormatter.swift in Sources */,
 				3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */,
 				3B426A3F2CBBBBC9006F4F23 /* SettingsViewController.swift in Sources */,
 				3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */,
