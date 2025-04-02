@@ -59,6 +59,11 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         
         let dateManager = DateManager()
         stringDateArray = dateManager.generateDateArray()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideChart(_:)))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+        
     }
     
     private func setUpLabels(){
@@ -96,7 +101,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         var filteredEntries = [BarChartDataEntry]()
         
         for (index, priceData) in cellDataArray[rowIndex].dataBase.prices.enumerated() {
-            let price = round(priceData[1])
+            let price = priceData[1]
+            print("price = \(price)")
             entries.append(BarChartDataEntry(x: Double(index), y: price))
             filteredEntries = Array(entries.suffix(daysCount))
         }
@@ -233,25 +239,43 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let point = transformer.pixelForValues(x: xAxisValue, y: yAxisValue)
         let convertedPoint = barChartView.convert(point, to: self.view)
         
-        let text = "\(Int(entry.y))"
-        
         let popoverWith: CGFloat = 100
         let popoverHeight: CGFloat = 50
         let popoverX = convertedPoint.x - popoverWith / 2
         let popoverY = convertedPoint.y - popoverHeight - 8
     
-        print("entry x = \(xAxisValue), entry y = \(yAxisValue)")
+        let serialNumber = Int(xAxisValue) + 1
         
-        popover.setup(date: String(xAxisValue), text: text)
+        popover.setup(date: stringDateArray[serialNumber], text: String(format: "%.2f", yAxisValue) )
         popover.show(at: CGPoint(x: popoverX, y: popoverY), in: self.view)
     }
     
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
         popover.hide()
     }
+    
+    func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        let scrollThreshold: CGFloat = 2.0
+        
+        if abs(dX) > scrollThreshold || abs(dY) > scrollThreshold {
+            popover.hide()
+            centralBarView.highlightValues(nil)
+        }
+        
+    }
 
     func customAlertAction() {
         print("Activate custom alert")
+    }
+    
+    @objc func handleTapOutsideChart(_ gesture: UITapGestureRecognizer) {
+        let location = gesture.location(in: view)
+        
+        if !centralBarView.frame.contains(location) {
+            popover.hide()
+            centralBarView.highlightValues(nil)
+        }
+        
     }
     
 }
