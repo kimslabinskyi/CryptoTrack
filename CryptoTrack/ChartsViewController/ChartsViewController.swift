@@ -35,6 +35,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
             
             collectionView.layoutIfNeeded()
             collectionView.frame.size = originalSize
+            collectionView.showsVerticalScrollIndicator = false
             isInitialLayoutDone = true
         }
     }
@@ -204,12 +205,18 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     private func configureCell(_ cell: ChartCollectionViewCell, with cellData: CellData) {
-        let radius: CGFloat = 10
+        let radius: CGFloat = 20
         cell.layer.cornerRadius = radius
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.masksToBounds = true
         cell.centralBarView.delegate = self
+        
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.layer.shadowRadius = 6
+        cell.layer.masksToBounds = false
         
         if !cellData.cellDataForChart.isEmpty {
             cell.centralBarView.data = cellData.cellDataForChart

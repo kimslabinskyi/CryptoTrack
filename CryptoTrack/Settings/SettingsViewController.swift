@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         }
     }
     
-    @IBAction func doSwitch(_ sender: UISwitch) {
+    @IBAction func switchHaptics(_ sender: UISwitch) {
         if sender.isOn {
             SettingsViewController.isHapticFeedbackEnabled = true
             UserDefaults.standard.set(true, forKey: "isHapticFeedbackEnabled")
