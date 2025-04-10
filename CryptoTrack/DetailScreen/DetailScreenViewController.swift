@@ -18,8 +18,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     @IBOutlet weak var highRateLabel: UILabel!
     @IBOutlet weak var lowRateLabel: UILabel!
     @IBOutlet weak var avgRateLabel: UILabel!
-    @IBOutlet weak var marketCapLabel: UILabel!
-    @IBOutlet weak var daysCounterLabel: UILabel!
     @IBOutlet weak var dynamicDaysLabel: UILabel!
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
@@ -30,6 +28,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     var stringDateArray: [String] = []
     var indexPath: IndexPath?
     var dynamicSummary: Double = 0.0
+    var dynamicSummaryCount: Double = 0.0
     var rowIndex: Int {
         return indexPath?.row ?? 0
     }
@@ -69,20 +68,19 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     private func setUpLabels(){
         currencyRateLabel.text = String(format: "%.2f", cellDataArray[rowIndex].currencyRate) + " USD"
         currencyNameLabel.text = cellDataArray[rowIndex].currencyName
-        marketCapLabel.text = String(cellDataArray[rowIndex].marketCap)
         
         if cellDataArray[rowIndex].dailySummary < 0 {
-            dailySummaryLabel.text = "\(String(format: "%.3f", cellDataArray[rowIndex].dailySummary)) %"
+            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary * -1)) %\n \(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount))"
             dailySummaryLabel.backgroundColor = UIColor.systemRed
         } else {
-            dailySummaryLabel.text = "+\(String(format: "%.3f", cellDataArray[rowIndex].dailySummary)) %"
+            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary)) %\n \(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount))"
             dailySummaryLabel.backgroundColor = UIColor.systemGreen
         }
         
         countLabelsValue(daysCount: 31)
-        dailySummaryLabel.layer.cornerRadius = 5
+        dailySummaryLabel.layer.cornerRadius = 10
         dailySummaryLabel.layer.masksToBounds = true
-        dynamicSummaryLabel.layer.cornerRadius = 5
+        dynamicSummaryLabel.layer.cornerRadius = 10
         dynamicSummaryLabel.layer.masksToBounds = true
         
         countDynamicSummary(daysCount: 31)
@@ -140,10 +138,10 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let dynamicSummary = dynamicDifference/dynamicFirstElement * 100
         
         if dynamicSummary < 0 {
-            dynamicSummaryLabel.text = "\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary * -1)) %\n\(String(format: "%.2f", dynamicSummary))"
             dynamicSummaryLabel.backgroundColor = .systemRed
         } else {
-            dynamicSummaryLabel.text = "+\(String(format: "%.3f", dynamicSummary)) %"
+            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary)) %\n+\(String(format: "%.2f", dynamicSummary))"
             dynamicSummaryLabel.backgroundColor = .systemGreen
         }
     }
@@ -175,9 +173,9 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
                         
             }
 
-        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount))) USD"
-        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
-        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
+        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount)))"
+        highRateLabel.text = String(format: "%.2f", highestValue)
+        lowRateLabel.text = String(format: "%.2f", lowestValue)
     }
 
     
@@ -190,7 +188,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             initChart(daysCount: 7)
             countDynamicSummary(daysCount: 7)
             countLabelsValue(daysCount: 7)
-            daysCounterLabel.text = "7"
             dynamicDaysLabel.text = "7"
             popover.hide()
             centralBarView.highlightValues(nil)
@@ -198,7 +195,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             initChart(daysCount: 31)
             countDynamicSummary(daysCount: 31)
             countLabelsValue(daysCount: 31)
-            daysCounterLabel.text = "31"
             dynamicDaysLabel.text = "31"
             popover.hide()
             centralBarView.highlightValues(nil)
@@ -206,7 +202,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             initChart(daysCount: 90)
             countDynamicSummary(daysCount: 90)
             countLabelsValue(daysCount: 90)
-            daysCounterLabel.text = "90"
             dynamicDaysLabel.text = "90"
             popover.hide()
             centralBarView.highlightValues(nil)
@@ -214,7 +209,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             initChart(daysCount: 365)
             countDynamicSummary(daysCount: 365)
             countLabelsValue(daysCount: 365)
-            daysCounterLabel.text = "365"
             dynamicDaysLabel.text = "365"
             popover.hide()
             centralBarView.highlightValues(nil)

@@ -19,6 +19,8 @@ struct CellData {
     var currencyName: String
     var dailySummary: Double
     var dynamicSummary: Double
+    var dailySummaryCount: Double
+    var dynamicSummaryCount: Double
     var marketCap: Int
 }
 
@@ -33,6 +35,8 @@ struct GlobalData {
                  currencyName: "",
                  dailySummary: 0.0,
                  dynamicSummary: 0.0,
+                 dailySummaryCount: 0,
+                 dynamicSummaryCount: 0,
                  marketCap: 0),
         
         CellData(typeOfCell: .eth,
@@ -43,6 +47,8 @@ struct GlobalData {
                  currencyName: "",
                  dailySummary: 0.0,
                  dynamicSummary: 0.0,
+                 dailySummaryCount: 0,
+                 dynamicSummaryCount: 0,
                  marketCap: 0),
         
         CellData(typeOfCell: .bnb,
@@ -53,6 +59,8 @@ struct GlobalData {
                  currencyName: "",
                  dailySummary: 0.0,
                  dynamicSummary: 0.0,
+                 dailySummaryCount: 0,
+                 dynamicSummaryCount: 0,
                  marketCap: 0)
         
     ]

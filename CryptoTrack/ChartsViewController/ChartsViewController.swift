@@ -90,20 +90,20 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
                 dispatchGroup.leave()
             }
             
-            dispatchGroup.enter()
-            
-            NetworkManager.shared.getMarketCap(cellData.typeOfCell) { jsonResponse, error in
-                if let response = jsonResponse {
-                    let marketCap = response.usdMarketCap
-                    GlobalData.cellDataArray[index].marketCap = Int(marketCap)
-                    print("MarketCap = \(String(describing: response))")
-                } else if let error = error {
-                    self.hasErrorOccurred = true
-                    print("Error in getMarketCap: \(error.localizedDescription)")
-                }
-                
-                dispatchGroup.leave()
-            }
+//            dispatchGroup.enter()
+//            
+//            NetworkManager.shared.getMarketCap(cellData.typeOfCell) { jsonResponse, error in
+//                if let response = jsonResponse {
+//                    let marketCap = response.usdMarketCap
+//                    GlobalData.cellDataArray[index].marketCap = Int(marketCap)
+//                    print("MarketCap = \(String(describing: response))")
+//                } else if let error = error {
+//                    self.hasErrorOccurred = true
+//                    print("Error in getMarketCap: \(error.localizedDescription)")
+//                }
+//                
+//                dispatchGroup.leave()
+//            }
         }
         
         dispatchGroup.notify(queue: .main) {
@@ -171,6 +171,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
         print("dailyDifference = \(dailyDifference)")
         cellData.dynamicSummary = summaryDifference/thirtyFirstFromEnd * 100
         cellData.dailySummary = dailyDifference/secondLastElement * 100
+        cellData.dailySummaryCount = dailyDifference
+    
         
         if let lastPrice = cellData.dataBase.prices.last?[1] {
             cellData.currencyRate = lastPrice
@@ -225,7 +227,6 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.lowestLabel.text = String(Int(cellData.lowestValue)) + " USD"
             cell.cryptocurrencyRateLabel.text = String(Int(cellData.currencyRate)) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
-            cell.marketCapLabel.text = String(cellData.marketCap)
             
             if cellData.dynamicSummary < 0 {
                 cell.dynamicSummaryLabel.text = String(format: "%.2f", cellData.dynamicSummary) + " %"
@@ -260,7 +261,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension ChartsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = 340
-        let height = 420
+        let height = 400
         return CGSize(width: width, height: height)
     }
     

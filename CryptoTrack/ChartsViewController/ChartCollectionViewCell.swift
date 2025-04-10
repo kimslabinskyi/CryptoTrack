@@ -17,7 +17,6 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var highestLabel: UILabel!
     @IBOutlet weak var lowestLabel: UILabel!
-    @IBOutlet weak var marketCapLabel: UILabel!
     
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
