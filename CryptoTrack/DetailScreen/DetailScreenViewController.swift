@@ -19,8 +19,15 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     @IBOutlet weak var lowRateLabel: UILabel!
     @IBOutlet weak var avgRateLabel: UILabel!
     @IBOutlet weak var dynamicDaysLabel: UILabel!
+    
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
+    @IBOutlet weak var dailyCountLabel: UILabel!
+    @IBOutlet weak var dynamicCountLabel: UILabel!
+    
+    @IBOutlet weak var dailyView: UIView!
+    @IBOutlet weak var dynamicView: UIView!
+    @IBOutlet weak var downView: UIView!
     
     @IBOutlet weak var segmentController: UISegmentedControl!
     
@@ -55,6 +62,7 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         centralBarView.xAxis.labelPosition = .bottom
         centralBarView.leftAxis.drawGridLinesEnabled = true
         centralBarView.rightAxis.enabled = false
+        centralBarView.legend.enabled = false 
         
         let dateManager = DateManager()
         stringDateArray = dateManager.generateDateArray()
@@ -70,18 +78,21 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         currencyNameLabel.text = cellDataArray[rowIndex].currencyName
         
         if cellDataArray[rowIndex].dailySummary < 0 {
-            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary * -1)) %\n \(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount))"
-            dailySummaryLabel.backgroundColor = UIColor.systemRed
+            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary * -1)) %"
+            dailyCountLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount * -1))"
+            dailyView.backgroundColor = UIColor.systemRed
         } else {
-            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary)) %\n \(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount))"
-            dailySummaryLabel.backgroundColor = UIColor.systemGreen
+            dailySummaryLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummary)) %"
+            dailyCountLabel.text = "\(String(format: "%.2f", cellDataArray[rowIndex].dailySummaryCount))"
+            dailyView.backgroundColor = UIColor.systemGreen
         }
         
         countLabelsValue(daysCount: 31)
-        dailySummaryLabel.layer.cornerRadius = 10
-        dailySummaryLabel.layer.masksToBounds = true
-        dynamicSummaryLabel.layer.cornerRadius = 10
-        dynamicSummaryLabel.layer.masksToBounds = true
+        dailyView.layer.cornerRadius = 15
+        dailyView.layer.masksToBounds = true
+        dynamicView.layer.cornerRadius = 15
+        dynamicView.layer.masksToBounds = true
+        downView.layer.cornerRadius = 15
         
         countDynamicSummary(daysCount: 31)
         segmentController.selectedSegmentIndex = 1
@@ -138,11 +149,13 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let dynamicSummary = dynamicDifference/dynamicFirstElement * 100
         
         if dynamicSummary < 0 {
-            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary * -1)) %\n\(String(format: "%.2f", dynamicSummary))"
-            dynamicSummaryLabel.backgroundColor = .systemRed
+            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary * -1)) %"
+            dynamicCountLabel.text = "\(String(format: "%.2f", dynamicDifference * -1))"
+            dynamicView.backgroundColor = .systemRed
         } else {
-            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary)) %\n+\(String(format: "%.2f", dynamicSummary))"
-            dynamicSummaryLabel.backgroundColor = .systemGreen
+            dynamicSummaryLabel.text = " \(String(format: "%.2f", dynamicSummary)) %"
+            dynamicCountLabel.text = "\(String(format: "%.2f", dynamicDifference))"
+            dynamicView.backgroundColor = .systemGreen
         }
     }
     
@@ -173,9 +186,9 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
                         
             }
 
-        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount)))"
-        highRateLabel.text = String(format: "%.2f", highestValue)
-        lowRateLabel.text = String(format: "%.2f", lowestValue)
+        avgRateLabel.text = "\(String(format: "%.2f", sum / Double(daysCount))) USD"
+        highRateLabel.text = String(format: "%.2f", highestValue) + " USD"
+        lowRateLabel.text = String(format: "%.2f", lowestValue) + " USD"
     }
 
     

@@ -14,10 +14,6 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cryptocurrencyNameLabel: UILabel!
     @IBOutlet weak var cryptocurrencyRateLabel: UILabel!
     
-    @IBOutlet weak var averageLabel: UILabel!
-    @IBOutlet weak var highestLabel: UILabel!
-    @IBOutlet weak var lowestLabel: UILabel!
-    
     @IBOutlet weak var dailySummaryLabel: UILabel!
     @IBOutlet weak var dynamicSummaryLabel: UILabel!
     

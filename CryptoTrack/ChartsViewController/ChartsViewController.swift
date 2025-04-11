@@ -222,9 +222,6 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         if !cellData.cellDataForChart.isEmpty {
             cell.centralBarView.data = cellData.cellDataForChart
-            cell.averageLabel.text = String(Int(cellData.averageValue)) + " USD"
-            cell.highestLabel.text = String(Int(cellData.highestValue)) + " USD"
-            cell.lowestLabel.text = String(Int(cellData.lowestValue)) + " USD"
             cell.cryptocurrencyRateLabel.text = String(Int(cellData.currencyRate)) + " USD"
             cell.cryptocurrencyNameLabel.text = cellData.currencyName
             
@@ -261,7 +258,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension ChartsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = 340
-        let height = 400
+        let height = 325
         return CGSize(width: width, height: height)
     }
     
