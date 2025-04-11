@@ -24,6 +24,7 @@ class CustomAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false
+        textView.isSelectable = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
