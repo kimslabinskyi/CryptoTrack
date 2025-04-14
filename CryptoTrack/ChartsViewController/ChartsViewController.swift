@@ -60,7 +60,28 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
     
     private func setUp(){
         collectionView.delaysContentTouches = false
-        collectionView.backgroundColor = UIColor.systemBackground      
+        collectionView.backgroundColor = UIColor.systemBackground
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Crypto Currency Rates"
+        titleLabel.textColor = UIColor { traitCollection in
+            traitCollection.userInterfaceStyle == .dark ? .white: .black
+        }
+        titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        titleLabel.sizeToFit()
+        
+        let titleView = UIView()
+        titleView.addSubview(titleLabel)
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor)
+        ])
+        
+        titleView.frame = CGRect(x: 0, y: 0, width: titleLabel.frame.width, height: titleLabel.frame.height)
+        
+        self.navigationItem.titleView = titleView
     }
     
     private func loadData() {
