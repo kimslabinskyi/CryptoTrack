@@ -62,7 +62,7 @@ class NetworkManager {
         guard let url = cryptocurrency.urlForChart else {
             fatalError()
         }
-        
+         
         guard let name = cryptocurrency.name else {
             fatalError()
         }

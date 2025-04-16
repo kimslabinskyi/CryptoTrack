@@ -11,6 +11,9 @@
 		3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */; };
 		3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */; };
 		3B2E43302D9AA4B700EC721A /* CustomXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */; };
+		3B3DEABA2DACFF5F00EFAB29 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */; };
+		3B3DEABC2DACFF5F00EFAB29 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */; };
+		3B3DEACB2DACFF6200EFAB29 /* CryptoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B426A3F2CBBBBC9006F4F23 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */; };
 		3B426A442CBBCC54006F4F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B426A432CBBCC54006F4F23 /* Main.storyboard */; };
 		3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */; };
@@ -19,8 +22,6 @@
 		3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53D72C5CD92600A3097D /* Assets.xcassets */; };
 		3B4D53DB2C5CD92600A3097D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53DA2C5CD92600A3097D /* Base */; };
 		3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */; };
-		3B5D9BF72CAD4473007275E9 /* CurrencyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */; };
-		3B5D9BF82CAD4473007275E9 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */; };
 		3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */; };
 		3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */; };
 		3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */; };
@@ -36,11 +37,38 @@
 		D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3B3DEAC92DACFF6200EFAB29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4D53C32C5CD92400A3097D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B3DEAB72DACFF5F00EFAB29;
+			remoteInfo = CryptoWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3B3DEAD02DACFF6200EFAB29 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3B3DEACB2DACFF6200EFAB29 /* CryptoWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3B0E8BB42CA7057100049583 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyViewController.swift; sourceTree = "<group>"; };
 		3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomXAxisFormatter.swift; sourceTree = "<group>"; };
+		3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CryptoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3B426A432CBBCC54006F4F23 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +79,6 @@
 		3B4D53DA2C5CD92600A3097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4D53DC2C5CD92600A3097D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
-		3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableViewCell.swift; sourceTree = "<group>"; };
-		3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
 		3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,7 +98,30 @@
 		FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.release.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3B3DEACC2DACFF6200EFAB29 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3B3DEAB72DACFF5F00EFAB29 /* CryptoWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3B3DEACC2DACFF6200EFAB29 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = CryptoWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		3B3DEAB52DACFF5F00EFAB29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B3DEABC2DACFF5F00EFAB29 /* SwiftUI.framework in Frameworks */,
+				3B3DEABA2DACFF5F00EFAB29 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B4D53C82C5CD92400A3097D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4D53CD2C5CD92400A3097D /* CryptoTrack */,
+				3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */,
 				3B4D53CC2C5CD92400A3097D /* Products */,
 				5122793E1BD2350A6F80C95C /* Pods */,
 				D65DC84BD85AA00BB8C9C950 /* Frameworks */,
@@ -106,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */,
+				3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,7 +169,6 @@
 				3BFF15E12C627EAE00BB3B62 /* Network & DataSource */,
 				3BFF15E22C627ECA00BB3B62 /* TestScreen */,
 				3BFF15E52C627EFD00BB3B62 /* ChartsViewController */,
-				3B5D9BF62CAD4473007275E9 /* CurrencyList */,
 				3BBDDC5B2C85B6EE00A6914A /* DetailScreen */,
 				3B5D9BFD2CAD45F6007275E9 /* InfoViewController */,
 				3B5D9BFA2CAD4478007275E9 /* PopoverView */,
@@ -130,15 +180,6 @@
 				3B4D53DC2C5CD92600A3097D /* Info.plist */,
 			);
 			path = CryptoTrack;
-			sourceTree = "<group>";
-		};
-		3B5D9BF62CAD4473007275E9 /* CurrencyList */ = {
-			isa = PBXGroup;
-			children = (
-				3B5D9BF52CAD4473007275E9 /* CurrencyListViewController.swift */,
-				3B5D9BF42CAD4473007275E9 /* CurrencyListTableViewCell.swift */,
-			);
-			path = CurrencyList;
 			sourceTree = "<group>";
 		};
 		3B5D9BFA2CAD4478007275E9 /* PopoverView */ = {
@@ -223,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */,
+				3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */,
+				3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,6 +273,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B3DEAB72DACFF5F00EFAB29 /* CryptoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B3DEACD2DACFF6200EFAB29 /* Build configuration list for PBXNativeTarget "CryptoWidgetExtension" */;
+			buildPhases = (
+				3B3DEAB42DACFF5F00EFAB29 /* Sources */,
+				3B3DEAB52DACFF5F00EFAB29 /* Frameworks */,
+				3B3DEAB62DACFF5F00EFAB29 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */,
+			);
+			name = CryptoWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = CryptoWidgetExtension;
+			productReference = 3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3B4D53CA2C5CD92400A3097D /* CryptoTrack */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "CryptoTrack" */;
@@ -239,10 +304,12 @@
 				3B4D53C82C5CD92400A3097D /* Frameworks */,
 				3B4D53C92C5CD92400A3097D /* Resources */,
 				3261A1A259E2F2B79DDF40B9 /* [CP] Embed Pods Frameworks */,
+				3B3DEAD02DACFF6200EFAB29 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3B3DEACA2DACFF6200EFAB29 /* PBXTargetDependency */,
 			);
 			name = CryptoTrack;
 			productName = "Money Manager";
@@ -256,9 +323,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					3B3DEAB72DACFF5F00EFAB29 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					3B4D53CA2C5CD92400A3097D = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -278,11 +348,19 @@
 			projectRoot = "";
 			targets = (
 				3B4D53CA2C5CD92400A3097D /* CryptoTrack */,
+				3B3DEAB72DACFF5F00EFAB29 /* CryptoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B3DEAB62DACFF5F00EFAB29 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B4D53C92C5CD92400A3097D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,6 +420,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B3DEAB42DACFF5F00EFAB29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B4D53C72C5CD92400A3097D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,8 +442,6 @@
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
 				3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */,
 				3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */,
-				3B5D9BF72CAD4473007275E9 /* CurrencyListTableViewCell.swift in Sources */,
-				3B5D9BF82CAD4473007275E9 /* CurrencyListViewController.swift in Sources */,
 				3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */,
 				3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */,
 				3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */,
@@ -374,6 +457,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3B3DEACA2DACFF6200EFAB29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B3DEAB72DACFF5F00EFAB29 /* CryptoWidgetExtension */;
+			targetProxy = 3B3DEAC92DACFF6200EFAB29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		3B4D53D92C5CD92600A3097D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -386,6 +477,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B3DEACE2DACFF6200EFAB29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5J3R85UNX5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CryptoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kim.Money-Manager.CryptoWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B3DEACF2DACFF6200EFAB29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5J3R85UNX5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CryptoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kim.Money-Manager.CryptoWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3B4D53DD2C5CD92600A3097D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -566,6 +715,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B3DEACD2DACFF6200EFAB29 /* Build configuration list for PBXNativeTarget "CryptoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B3DEACE2DACFF6200EFAB29 /* Debug */,
+				3B3DEACF2DACFF6200EFAB29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3B4D53C62C5CD92400A3097D /* Build configuration list for PBXProject "CryptoTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
