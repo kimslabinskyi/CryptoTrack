@@ -251,6 +251,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.dynamicSummaryLabel.backgroundColor = UIColor.systemRed
             } else {
                 cell.dynamicSummaryLabel.text = "+\(String(format: "%.2f", cellData.dynamicSummary)) %"
+                cell.dynamicSummaryLabel.backgroundColor = UIColor.systemGreen
             }
             
             if cellData.dailySummary < 0 {
@@ -258,6 +259,7 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.dailySummaryLabel.backgroundColor = UIColor.systemRed
             } else {
                 cell.dailySummaryLabel.text = "+\(String(format: "%.2f", cellData.dailySummary)) %"
+                cell.dailySummaryLabel.backgroundColor = UIColor.systemGreen 
             }
         }
     }
