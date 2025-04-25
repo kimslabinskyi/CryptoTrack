@@ -11,12 +11,15 @@ import MessageUI
 class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var hapticSwitch: UISwitch!
-    
+    @IBOutlet weak var reviewButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     static var isHapticFeedbackEnabled = UserDefaults().bool(forKey: "isHapticFeedbackEnabled")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reviewButton.contentHorizontalAlignment = .leading
+        shareButton.contentHorizontalAlignment = .leading
         if UserDefaults.standard.bool(forKey: "isHapticFeedbackEnabled") {
             hapticSwitch.isOn = true
         } else {
