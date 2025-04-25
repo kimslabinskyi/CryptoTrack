@@ -508,30 +508,111 @@
             </objects>
             <point key="canvasLocation" x="3422" y="266"/>
         </scene>
-        <!--View Controller-->
+        <!--Cryptocurrencies info-->
         <scene sceneID="fE1-LL-0G5">
             <objects>
-                <viewController id="cwh-6h-jEe" sceneMemberID="viewController">
+                <viewController id="cwh-6h-jEe" customClass="InfoViewController" customModule="CryptoTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oqP-dm-zx9">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coming soon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsQ-4i-3Vf">
-                                <rect key="frame" x="144" y="427" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bRq-uF-ozx">
+                                <rect key="frame" x="0.0" y="208" width="402" height="549"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="58" id="57O-TQ-Ggd" customClass="InfoTableViewCell" customModule="CryptoTrack" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="402" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="57O-TQ-Ggd" id="PUE-S5-CFp">
+                                            <rect key="frame" x="0.0" y="0.0" width="402" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ8-sw-K0m">
+                                                    <rect key="frame" x="20" y="11" width="362" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="centralText" destination="mJ8-sw-K0m" id="eWC-6e-tG5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cwh-6h-jEe" id="z9X-jx-cQP"/>
+                                    <outlet property="delegate" destination="cwh-6h-jEe" id="2nN-JS-Tck"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find out more about cryptocurrencies!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Qh-8bx">
+                                <rect key="frame" x="16" y="176" width="370" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GHH-e6-YjC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bRq-uF-ozx" firstAttribute="bottom" secondItem="GHH-e6-YjC" secondAttribute="bottom" id="Ebm-4b-G6S"/>
+                            <constraint firstItem="bRq-uF-ozx" firstAttribute="centerX" secondItem="GHH-e6-YjC" secondAttribute="centerX" id="Mws-Vk-UbO"/>
+                            <constraint firstItem="cMe-Qh-8bx" firstAttribute="leading" secondItem="GHH-e6-YjC" secondAttribute="leading" constant="16" id="Qtf-L2-YoG"/>
+                            <constraint firstItem="bRq-uF-ozx" firstAttribute="trailing" secondItem="GHH-e6-YjC" secondAttribute="trailing" id="U5Q-Po-jlg"/>
+                            <constraint firstItem="GHH-e6-YjC" firstAttribute="trailing" secondItem="cMe-Qh-8bx" secondAttribute="trailing" constant="16" id="eYY-ta-BUD"/>
+                            <constraint firstItem="bRq-uF-ozx" firstAttribute="top" secondItem="cMe-Qh-8bx" secondAttribute="bottom" constant="8" symbolic="YES" id="g9B-1T-RTv"/>
+                            <constraint firstItem="cMe-Qh-8bx" firstAttribute="top" secondItem="GHH-e6-YjC" secondAttribute="top" constant="8" id="n2n-bf-hGa"/>
+                            <constraint firstItem="bRq-uF-ozx" firstAttribute="leading" secondItem="GHH-e6-YjC" secondAttribute="leading" id="ntM-LY-K2q"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Zjy-jt-xVa"/>
+                    <navigationItem key="navigationItem" title="Cryptocurrencies info" id="Zjy-jt-xVa"/>
+                    <connections>
+                        <outlet property="tableView" destination="bRq-uF-ozx" id="4nf-FI-OTN"/>
+                        <segue destination="7c8-n1-7Rj" kind="show" identifier="showInfo" id="bcS-fv-BKp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UM9-GE-URh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4338.8059701492539" y="264.98855835240272"/>
+        </scene>
+        <!--Text View Controller-->
+        <scene sceneID="k00-Ac-9Vb">
+            <objects>
+                <viewController id="7c8-n1-7Rj" customClass="TextViewController" customModule="CryptoTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fpm-fA-XoL">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dwr-1E-bJl">
+                                <rect key="frame" x="16" y="168" width="370" height="589"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dwr-1E-bJl" secondAttribute="height" multiplier="370:589" id="bXl-y2-psk"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SkF-i3-y6G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dwr-1E-bJl" firstAttribute="leading" secondItem="SkF-i3-y6G" secondAttribute="leading" constant="16" id="Det-dg-NEs"/>
+                            <constraint firstItem="SkF-i3-y6G" firstAttribute="trailing" secondItem="Dwr-1E-bJl" secondAttribute="trailing" constant="16" id="StN-9k-sl4"/>
+                            <constraint firstItem="Dwr-1E-bJl" firstAttribute="top" secondItem="SkF-i3-y6G" secondAttribute="top" id="Umu-Gk-5hm"/>
+                            <constraint firstItem="Dwr-1E-bJl" firstAttribute="bottom" secondItem="SkF-i3-y6G" secondAttribute="bottom" id="dOs-0F-d2E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lDk-JK-MDc"/>
+                    <connections>
+                        <outlet property="textView" destination="Dwr-1E-bJl" id="qcd-DX-s6K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLX-Qs-Htv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5259.7014925373132" y="264.98855835240272"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fPO-XU-3rh">

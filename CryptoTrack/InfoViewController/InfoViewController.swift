@@ -8,49 +8,35 @@
 import UIKit
 
 class InfoViewController: UIViewController, CustomAlertDelegate {
-   
+    
     @IBOutlet weak var tableView: UITableView!
     // Blockchain, mining, smart contracts
     // Cryptocurrency trading, regulations
     // Storing Cryptocurrencies, private keys and security, milti-currency Wallets
-    let list = [["What is blockchain and how does it work?",
-                 "What are the advantages of using blockchain compared to traditional systems?",
-                 "How does a public blockchain differ from a private one?",
-                 "How is decentralization achieved in blockchain?",
-                 "What problems does blockchain technology solve in the financial sector?"
+    var selectedIndexPath: IndexPath?
+    let list = [["What is cryptocurrency trading?",
+                 "How cryptocurrency markets work?",
+                 "Understanding market volatility"
                 ], [
-                    "What is mining and how does the process of creating new blocks work?",
-                    "How does Proof of Work differ from Proof of Stake?",
-                    "How does mining affect energy profitability?"
+                    "Choose a reputable cryptocurrency exchange",
+                    "Create and secure your trading account",
+                    "Deposit funds to your account"
                 ], [
-                    "What are smart contracts and how do they work?",
-                    "Which industries can use smart contracts for process automation?",
-                    "How can smart contracts be used to protect against fraud?",
-                    "What are the risks associated with smart contracts?",
-                ],
-                
-                
-                ["What is the difference between centralized and decentralized exchanges?",
-                 "What risks are associated with cryptocurrency trading?",
-                 "What are buy and sell orders, and how are they used on exchanges?",
-                 "How does algorithmic trading impact cryptocurrency markets?"
+                    "Trading pairs explained",
+                    "Basic order types",
+                    "Understanding the order book"
                 ], [
-                    "How do government regulations affect cryptocurrency exchanges?",
-                    "What are the legal requirements for cryptocurrency exchanges in different countries?",
-                    "How do exchanges protect user's funds and data?"] ,
-                
-                
-                ["What type of cryptocurrency wallets exist (hot and cold), and what are their differences?",
-                 "How to choose a secure cryptocurrency wallet for storing your assets?",
-                 "What security measures should be followed when using cryptocurrency wallets?",
+                    "Long-term holding (HODL)",
+                    "Dollar-cost averaging (DCA)",
+                    "Day trading"
                 ], [
-                    "What are private and public keys, and how are they used in cryptocurrency wallets?",
-                    "What happens if a private key is lost, and how can it be protected?",
-                    "What methods exist for recovering access to cryptocurrency wallets?"
+                    "Set clear risk parameters",
+                    "Secure your crypto assets",
+                    "Manage emotional responses"
                 ], [
-                    "How do multi-currency wallets differ from single-currency wallets?",
-                    "What advantages do multi-currency wallets offer to users?",
-                    "How to ensure security when using multi-currency wallets?"
+                    "Technical analysis basics",
+                    "Understanding market sentiment",
+                    "Diversification strategies",
                 ]
     ]
     
@@ -63,7 +49,13 @@ class InfoViewController: UIViewController, CustomAlertDelegate {
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? TextViewController {
+            let indexPath = selectedIndexPath
+            destinationVC.indexPath = indexPath
+        }
+        
+    }
 }
 
 extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
@@ -77,17 +69,13 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoTableViewCell
-        cell.textView.text = list[indexPath.section][indexPath.row]
+        cell.centralText.text = list[indexPath.section][indexPath.row]
         cell.layer.masksToBounds = true
         cell.selectionStyle = .none
         
         let cornerRadius: CGFloat = 15.0
-        let path = UIBezierPath(roundedRect: cell.bounds,
-                                byRoundingCorners: [],
-                                cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         
         if indexPath.row == 0 {
-            path.addClip()
             cell.layer.cornerRadius = cornerRadius
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
@@ -102,33 +90,23 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AlertManager.showCustomAlert(on: self, delegate: self)
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: "showInfo", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        88
+        58
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        30
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionNames = ["Understanding Cryptocurrency Markets", "Getting Started with Cryptocurrency Trading", "Understanding Trading Mechanics", "Trading Strategies for Beginners", "Risk Management and Security", "Advanced Concepts"]
+        return sectionNames[section]
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }
-
     
     
 }

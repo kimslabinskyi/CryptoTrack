@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */; };
 		3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2C98C2C8A00C200457C20 /* GlobalData.swift */; };
 		3BDD3E2E2CABF28000451C1F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */; };
+		3BF60DD52DB90418002C50CB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF60DD42DB90418002C50CB /* TextViewController.swift */; };
 		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
 		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
 		D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */; };
@@ -89,6 +90,7 @@
 		3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
 		3BC2C98C2C8A00C200457C20 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		3BF60DD42DB90418002C50CB /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.debug.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */,
 				3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */,
+				3BF60DD42DB90418002C50CB /* TextViewController.swift */,
 			);
 			path = InfoViewController;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
 				3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */,
 				3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */,
+				3BF60DD52DB90418002C50CB /* TextViewController.swift in Sources */,
 				3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */,
 				3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */,
 				3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */,
