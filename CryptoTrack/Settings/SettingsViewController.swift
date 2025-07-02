@@ -18,8 +18,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reviewButton.contentHorizontalAlignment = .leading
-        shareButton.contentHorizontalAlignment = .leading
+        reviewButton.contentHorizontalAlignment = .left
+        shareButton.contentHorizontalAlignment = .left
         if UserDefaults.standard.bool(forKey: "isHapticFeedbackEnabled") {
             hapticSwitch.isOn = true
         } else {
@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
             
-            mailComposer.setToRecipients(["kim.slabinskyi@gmail.com"])
+            mailComposer.setToRecipients(["kim.sl.developer@gmail.com"])
             mailComposer.setSubject("CryptoTrack")
             mailComposer.setMessageBody("Hello, I'm interested in your app.", isHTML: false)
             
