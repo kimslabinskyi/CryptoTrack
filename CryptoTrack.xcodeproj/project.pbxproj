@@ -3,39 +3,44 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E8BB42CA7057100049583 /* RealmData.swift */; };
-		3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */; };
-		3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */; };
-		3B2E43302D9AA4B700EC721A /* CustomXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */; };
+		11B0B75A27C3D6A6DF607C72 /* Pods_CryptoTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0010BD9D108622B818F7F69A /* Pods_CryptoTrack.framework */; };
 		3B3DEABA2DACFF5F00EFAB29 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */; };
 		3B3DEABC2DACFF5F00EFAB29 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */; };
 		3B3DEACB2DACFF6200EFAB29 /* CryptoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3B426A3F2CBBBBC9006F4F23 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */; };
-		3B426A442CBBCC54006F4F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B426A432CBBCC54006F4F23 /* Main.storyboard */; };
-		3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */; };
-		3B4D53D12C5CD92400A3097D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */; };
-		3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D53D22C5CD92400A3097D /* MainViewController.swift */; };
-		3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53D72C5CD92600A3097D /* Assets.xcassets */; };
-		3B4D53DB2C5CD92600A3097D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B4D53DA2C5CD92600A3097D /* Base */; };
-		3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */; };
-		3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */; };
-		3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */; };
-		3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */; };
-		3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */; };
-		3B8380FC2D9C071500F2222A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8380FB2D9C070E00F2222A /* DateManager.swift */; };
-		3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9BBC432C91902000A7C09D /* AlertController.swift */; };
-		3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */; };
-		3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */; };
-		3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2C98C2C8A00C200457C20 /* GlobalData.swift */; };
-		3BDD3E2E2CABF28000451C1F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */; };
-		3BF60DD52DB90418002C50CB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF60DD42DB90418002C50CB /* TextViewController.swift */; };
-		3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */; };
-		3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */; };
-		D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */; };
+		3B54FF4E2EAAD0A80040A02D /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54FF472EAAD0A80040A02D /* AppIntent.swift */; };
+		3B54FF4F2EAAD0A80040A02D /* CryptoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54FF492EAAD0A80040A02D /* CryptoWidget.swift */; };
+		3B54FF502EAAD0A80040A02D /* CryptoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54FF4A2EAAD0A80040A02D /* CryptoWidgetBundle.swift */; };
+		3B54FF512EAAD0A80040A02D /* CryptoWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54FF4B2EAAD0A80040A02D /* CryptoWidgetLiveActivity.swift */; };
+		3B54FF522EAAD0A80040A02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B54FF482EAAD0A80040A02D /* Assets.xcassets */; };
+		3B77C7BE2EAACD7C0010D6F7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C79A2EAACD7C0010D6F7 /* AlertController.swift */; };
+		3B77C7BF2EAACD7C0010D6F7 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C79B2EAACD7C0010D6F7 /* AlertManager.swift */; };
+		3B77C7C02EAACD7C0010D6F7 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C79C2EAACD7C0010D6F7 /* CustomAlertViewController.swift */; };
+		3B77C7C12EAACD7C0010D6F7 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C79E2EAACD7C0010D6F7 /* ChartCollectionViewCell.swift */; };
+		3B77C7C22EAACD7C0010D6F7 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C79F2EAACD7C0010D6F7 /* ChartsViewController.swift */; };
+		3B77C7C32EAACD7C0010D6F7 /* ChangeCurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A12EAACD7C0010D6F7 /* ChangeCurrencyTableViewCell.swift */; };
+		3B77C7C42EAACD7C0010D6F7 /* ChangeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A22EAACD7C0010D6F7 /* ChangeCurrencyViewController.swift */; };
+		3B77C7C52EAACD7C0010D6F7 /* CustomXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A32EAACD7C0010D6F7 /* CustomXAxisFormatter.swift */; };
+		3B77C7C62EAACD7C0010D6F7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A42EAACD7C0010D6F7 /* DateManager.swift */; };
+		3B77C7C72EAACD7C0010D6F7 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A52EAACD7C0010D6F7 /* DetailScreenViewController.swift */; };
+		3B77C7C82EAACD7C0010D6F7 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A72EAACD7C0010D6F7 /* InfoTableViewCell.swift */; };
+		3B77C7C92EAACD7C0010D6F7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A82EAACD7C0010D6F7 /* InfoViewController.swift */; };
+		3B77C7CA2EAACD7C0010D6F7 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7A92EAACD7C0010D6F7 /* TextViewController.swift */; };
+		3B77C7CB2EAACD7C0010D6F7 /* CryptoCurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7AB2EAACD7C0010D6F7 /* CryptoCurrencyType.swift */; };
+		3B77C7CC2EAACD7C0010D6F7 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7AC2EAACD7C0010D6F7 /* GlobalData.swift */; };
+		3B77C7CD2EAACD7C0010D6F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7AD2EAACD7C0010D6F7 /* NetworkManager.swift */; };
+		3B77C7CE2EAACD7C0010D6F7 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7AE2EAACD7C0010D6F7 /* RealmData.swift */; };
+		3B77C7CF2EAACD7C0010D6F7 /* CustomPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7B02EAACD7C0010D6F7 /* CustomPopoverView.swift */; };
+		3B77C7D02EAACD7C0010D6F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7B22EAACD7C0010D6F7 /* SettingsViewController.swift */; };
+		3B77C7D12EAACD7C0010D6F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7B42EAACD7C0010D6F7 /* MainViewController.swift */; };
+		3B77C7D22EAACD7C0010D6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7B62EAACD7C0010D6F7 /* AppDelegate.swift */; };
+		3B77C7D32EAACD7C0010D6F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77C7BC2EAACD7C0010D6F7 /* SceneDelegate.swift */; };
+		3B77C7D42EAACD7C0010D6F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B77C7B72EAACD7C0010D6F7 /* Assets.xcassets */; };
+		3B77C7D72EAACD7C0010D6F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B77C7BB2EAACD7C0010D6F7 /* Main.storyboard */; };
+		3B77C7D82EAACD7C0010D6F7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B77C7B92EAACD7C0010D6F7 /* Base */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,56 +68,46 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B0E8BB42CA7057100049583 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
-		3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyViewController.swift; sourceTree = "<group>"; };
-		3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomXAxisFormatter.swift; sourceTree = "<group>"; };
+		0010BD9D108622B818F7F69A /* Pods_CryptoTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CryptoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		3B426A432CBBCC54006F4F23 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B4D53CB2C5CD92400A3097D /* CryptoTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B4D53D22C5CD92400A3097D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3B4D53D72C5CD92600A3097D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B4D53DA2C5CD92600A3097D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3B4D53DC2C5CD92600A3097D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
-		3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
-		3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
-		3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		3B8380FB2D9C070E00F2222A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
-		3B9BBC432C91902000A7C09D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
-		3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
-		3BC2C98C2C8A00C200457C20 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
-		3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		3BF60DD42DB90418002C50CB /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
-		6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.debug.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.debug.xcconfig"; sourceTree = "<group>"; };
-		8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money Manager.release.xcconfig"; path = "Target Support Files/Pods-Money Manager/Pods-Money Manager.release.xcconfig"; sourceTree = "<group>"; };
-		E8F58B3299B25103A78CE05B /* Pods-Money Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money Manager.debug.xcconfig"; path = "Target Support Files/Pods-Money Manager/Pods-Money Manager.debug.xcconfig"; sourceTree = "<group>"; };
-		FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.release.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.release.xcconfig"; sourceTree = "<group>"; };
+		3B54FF472EAAD0A80040A02D /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		3B54FF482EAAD0A80040A02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B54FF492EAAD0A80040A02D /* CryptoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoWidget.swift; sourceTree = "<group>"; };
+		3B54FF4A2EAAD0A80040A02D /* CryptoWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoWidgetBundle.swift; sourceTree = "<group>"; };
+		3B54FF4B2EAAD0A80040A02D /* CryptoWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		3B54FF4C2EAAD0A80040A02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B77C79A2EAACD7C0010D6F7 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		3B77C79B2EAACD7C0010D6F7 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3B77C79C2EAACD7C0010D6F7 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		3B77C79E2EAACD7C0010D6F7 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B77C79F2EAACD7C0010D6F7 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		3B77C7A12EAACD7C0010D6F7 /* ChangeCurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		3B77C7A22EAACD7C0010D6F7 /* ChangeCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyViewController.swift; sourceTree = "<group>"; };
+		3B77C7A32EAACD7C0010D6F7 /* CustomXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomXAxisFormatter.swift; sourceTree = "<group>"; };
+		3B77C7A42EAACD7C0010D6F7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		3B77C7A52EAACD7C0010D6F7 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
+		3B77C7A72EAACD7C0010D6F7 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		3B77C7A82EAACD7C0010D6F7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		3B77C7A92EAACD7C0010D6F7 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		3B77C7AB2EAACD7C0010D6F7 /* CryptoCurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyType.swift; sourceTree = "<group>"; };
+		3B77C7AC2EAACD7C0010D6F7 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		3B77C7AD2EAACD7C0010D6F7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3B77C7AE2EAACD7C0010D6F7 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
+		3B77C7B02EAACD7C0010D6F7 /* CustomPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverView.swift; sourceTree = "<group>"; };
+		3B77C7B22EAACD7C0010D6F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3B77C7B42EAACD7C0010D6F7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3B77C7B62EAACD7C0010D6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B77C7B72EAACD7C0010D6F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B77C7B82EAACD7C0010D6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B77C7B92EAACD7C0010D6F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B77C7BB2EAACD7C0010D6F7 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3B77C7BC2EAACD7C0010D6F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		61054F244B805D4F628267A5 /* Pods-CryptoTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.debug.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.debug.xcconfig"; sourceTree = "<group>"; };
+		D01F6BD26E7134258D135F11 /* Pods-CryptoTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTrack.release.xcconfig"; path = "Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3B3DEACC2DACFF6200EFAB29 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3B3DEAB72DACFF5F00EFAB29 /* CryptoWidgetExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3B3DEACC2DACFF6200EFAB29 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = CryptoWidget; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3B3DEAB52DACFF5F00EFAB29 /* Frameworks */ = {
@@ -128,26 +123,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D689DC7F89ED9847DAE9BA8D /* Pods_CryptoTrack.framework in Frameworks */,
+				11B0B75A27C3D6A6DF607C72 /* Pods_CryptoTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B426A402CBBBBD5006F4F23 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				3B426A3E2CBBBBC9006F4F23 /* SettingsViewController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		3B4D53C22C5CD92400A3097D = {
 			isa = PBXGroup;
 			children = (
-				3B4D53CD2C5CD92400A3097D /* CryptoTrack */,
-				3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */,
+				3B77C7BD2EAACD7C0010D6F7 /* CryptoTrack */,
+				3B54FF4D2EAAD0A80040A02D /* CryptoWidget */,
 				3B4D53CC2C5CD92400A3097D /* Products */,
 				5122793E1BD2350A6F80C95C /* Pods */,
 				D65DC84BD85AA00BB8C9C950 /* Frameworks */,
@@ -163,102 +150,121 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B4D53CD2C5CD92400A3097D /* CryptoTrack */ = {
+		3B54FF4D2EAAD0A80040A02D /* CryptoWidget */ = {
 			isa = PBXGroup;
 			children = (
-				3B4D53CE2C5CD92400A3097D /* AppDelegate.swift */,
-				3B4D53D02C5CD92400A3097D /* SceneDelegate.swift */,
-				3BFF15E12C627EAE00BB3B62 /* Network & DataSource */,
-				3BFF15E22C627ECA00BB3B62 /* TestScreen */,
-				3BFF15E52C627EFD00BB3B62 /* ChartsViewController */,
-				3BBDDC5B2C85B6EE00A6914A /* DetailScreen */,
-				3B5D9BFD2CAD45F6007275E9 /* InfoViewController */,
-				3B5D9BFA2CAD4478007275E9 /* PopoverView */,
-				3B9BBC452C91903600A7C09D /* AlertController */,
-				3B426A402CBBBBD5006F4F23 /* Settings */,
-				3B4D53D72C5CD92600A3097D /* Assets.xcassets */,
-				3B426A432CBBCC54006F4F23 /* Main.storyboard */,
-				3B4D53D92C5CD92600A3097D /* LaunchScreen.storyboard */,
-				3B4D53DC2C5CD92600A3097D /* Info.plist */,
+				3B54FF472EAAD0A80040A02D /* AppIntent.swift */,
+				3B54FF482EAAD0A80040A02D /* Assets.xcassets */,
+				3B54FF492EAAD0A80040A02D /* CryptoWidget.swift */,
+				3B54FF4A2EAAD0A80040A02D /* CryptoWidgetBundle.swift */,
+				3B54FF4B2EAAD0A80040A02D /* CryptoWidgetLiveActivity.swift */,
+				3B54FF4C2EAAD0A80040A02D /* Info.plist */,
 			);
-			path = CryptoTrack;
+			path = CryptoWidget;
 			sourceTree = "<group>";
 		};
-		3B5D9BFA2CAD4478007275E9 /* PopoverView */ = {
+		3B77C79D2EAACD7C0010D6F7 /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
-				3B5D9BF92CAD4478007275E9 /* CustomPopoverView.swift */,
-			);
-			path = PopoverView;
-			sourceTree = "<group>";
-		};
-		3B5D9BFD2CAD45F6007275E9 /* InfoViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3B5D9BFE2CAD4610007275E9 /* InfoViewController.swift */,
-				3B5D9C002CAD461E007275E9 /* InfoTableViewCell.swift */,
-				3BF60DD42DB90418002C50CB /* TextViewController.swift */,
-			);
-			path = InfoViewController;
-			sourceTree = "<group>";
-		};
-		3B9BBC452C91903600A7C09D /* AlertController */ = {
-			isa = PBXGroup;
-			children = (
-				3B9BBC432C91902000A7C09D /* AlertController.swift */,
-				3BDD3E2D2CABF28000451C1F /* CustomAlertViewController.swift */,
-				3B5D9C022CAD4EB3007275E9 /* AlertManager.swift */,
+				3B77C79A2EAACD7C0010D6F7 /* AlertController.swift */,
+				3B77C79B2EAACD7C0010D6F7 /* AlertManager.swift */,
+				3B77C79C2EAACD7C0010D6F7 /* CustomAlertViewController.swift */,
 			);
 			path = AlertController;
 			sourceTree = "<group>";
 		};
-		3BBDDC5B2C85B6EE00A6914A /* DetailScreen */ = {
+		3B77C7A02EAACD7C0010D6F7 /* ChartsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3BBDDC592C85B6E700A6914A /* DetailScreenViewController.swift */,
-				3B149BDA2CAD36A500169089 /* ChangeCurrencyViewController.swift */,
-				3B149BDC2CAD373200169089 /* ChangeCurrencyTableViewCell.swift */,
-				3B2E432F2D9AA4A800EC721A /* CustomXAxisFormatter.swift */,
-				3B8380FB2D9C070E00F2222A /* DateManager.swift */,
+				3B77C79E2EAACD7C0010D6F7 /* ChartCollectionViewCell.swift */,
+				3B77C79F2EAACD7C0010D6F7 /* ChartsViewController.swift */,
+			);
+			path = ChartsViewController;
+			sourceTree = "<group>";
+		};
+		3B77C7A62EAACD7C0010D6F7 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3B77C7A12EAACD7C0010D6F7 /* ChangeCurrencyTableViewCell.swift */,
+				3B77C7A22EAACD7C0010D6F7 /* ChangeCurrencyViewController.swift */,
+				3B77C7A32EAACD7C0010D6F7 /* CustomXAxisFormatter.swift */,
+				3B77C7A42EAACD7C0010D6F7 /* DateManager.swift */,
+				3B77C7A52EAACD7C0010D6F7 /* DetailScreenViewController.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
 		};
-		3BFF15E12C627EAE00BB3B62 /* Network & DataSource */ = {
+		3B77C7AA2EAACD7C0010D6F7 /* InfoViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3BFF15DF2C60DD9200BB3B62 /* NetworkManager.swift */,
-				3BBE0FA32C728A0F003A4D22 /* CryptoCurrencyType.swift */,
-				3BC2C98C2C8A00C200457C20 /* GlobalData.swift */,
-				3B0E8BB42CA7057100049583 /* RealmData.swift */,
+				3B77C7A72EAACD7C0010D6F7 /* InfoTableViewCell.swift */,
+				3B77C7A82EAACD7C0010D6F7 /* InfoViewController.swift */,
+				3B77C7A92EAACD7C0010D6F7 /* TextViewController.swift */,
+			);
+			path = InfoViewController;
+			sourceTree = "<group>";
+		};
+		3B77C7AF2EAACD7C0010D6F7 /* Network & DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3B77C7AD2EAACD7C0010D6F7 /* NetworkManager.swift */,
+				3B77C7AB2EAACD7C0010D6F7 /* CryptoCurrencyType.swift */,
+				3B77C7AC2EAACD7C0010D6F7 /* GlobalData.swift */,
+				3B77C7AE2EAACD7C0010D6F7 /* RealmData.swift */,
 			);
 			path = "Network & DataSource";
 			sourceTree = "<group>";
 		};
-		3BFF15E22C627ECA00BB3B62 /* TestScreen */ = {
+		3B77C7B12EAACD7C0010D6F7 /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
-				3B4D53D22C5CD92400A3097D /* MainViewController.swift */,
+				3B77C7B02EAACD7C0010D6F7 /* CustomPopoverView.swift */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
+		3B77C7B32EAACD7C0010D6F7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3B77C7B22EAACD7C0010D6F7 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3B77C7B52EAACD7C0010D6F7 /* TestScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3B77C7B42EAACD7C0010D6F7 /* MainViewController.swift */,
 			);
 			path = TestScreen;
 			sourceTree = "<group>";
 		};
-		3BFF15E52C627EFD00BB3B62 /* ChartsViewController */ = {
+		3B77C7BD2EAACD7C0010D6F7 /* CryptoTrack */ = {
 			isa = PBXGroup;
 			children = (
-				3BFF15E32C627EEE00BB3B62 /* ChartsViewController.swift */,
-				3B4FFE9B2C62820300134466 /* ChartCollectionViewCell.swift */,
+				3B77C7AF2EAACD7C0010D6F7 /* Network & DataSource */,
+				3B77C79D2EAACD7C0010D6F7 /* AlertController */,
+				3B77C7A02EAACD7C0010D6F7 /* ChartsViewController */,
+				3B77C7A62EAACD7C0010D6F7 /* DetailScreen */,
+				3B77C7AA2EAACD7C0010D6F7 /* InfoViewController */,
+				3B77C7B12EAACD7C0010D6F7 /* PopoverView */,
+				3B77C7B32EAACD7C0010D6F7 /* Settings */,
+				3B77C7B52EAACD7C0010D6F7 /* TestScreen */,
+				3B77C7B62EAACD7C0010D6F7 /* AppDelegate.swift */,
+				3B77C7B72EAACD7C0010D6F7 /* Assets.xcassets */,
+				3B77C7B82EAACD7C0010D6F7 /* Info.plist */,
+				3B77C7BA2EAACD7C0010D6F7 /* LaunchScreen.storyboard */,
+				3B77C7BB2EAACD7C0010D6F7 /* Main.storyboard */,
+				3B77C7BC2EAACD7C0010D6F7 /* SceneDelegate.swift */,
 			);
-			path = ChartsViewController;
+			path = CryptoTrack;
 			sourceTree = "<group>";
 		};
 		5122793E1BD2350A6F80C95C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8F58B3299B25103A78CE05B /* Pods-Money Manager.debug.xcconfig */,
-				A8A4A43965DCFED0F301E3D7 /* Pods-Money Manager.release.xcconfig */,
-				6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */,
-				FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */,
+				61054F244B805D4F628267A5 /* Pods-CryptoTrack.debug.xcconfig */,
+				D01F6BD26E7134258D135F11 /* Pods-CryptoTrack.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -266,9 +272,9 @@
 		D65DC84BD85AA00BB8C9C950 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8C6D03C5682A50AA6830043F /* Pods_CryptoTrack.framework */,
 				3B3DEAB92DACFF5F00EFAB29 /* WidgetKit.framework */,
 				3B3DEABB2DACFF5F00EFAB29 /* SwiftUI.framework */,
+				0010BD9D108622B818F7F69A /* Pods_CryptoTrack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,12 +294,7 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				3B3DEABD2DACFF5F00EFAB29 /* CryptoWidget */,
-			);
 			name = CryptoWidgetExtension;
-			packageProductDependencies = (
-			);
 			productName = CryptoWidgetExtension;
 			productReference = 3B3DEAB82DACFF5F00EFAB29 /* CryptoWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -302,12 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B4D53DF2C5CD92600A3097D /* Build configuration list for PBXNativeTarget "CryptoTrack" */;
 			buildPhases = (
-				6D7FCC53F24D2F5C947AEC50 /* [CP] Check Pods Manifest.lock */,
+				51D735B56029E07E8DA5D6DC /* [CP] Check Pods Manifest.lock */,
 				3B4D53C72C5CD92400A3097D /* Sources */,
 				3B4D53C82C5CD92400A3097D /* Frameworks */,
 				3B4D53C92C5CD92400A3097D /* Resources */,
-				3261A1A259E2F2B79DDF40B9 /* [CP] Embed Pods Frameworks */,
 				3B3DEAD02DACFF6200EFAB29 /* Embed Foundation Extensions */,
+				AB06A17AB20725EADE08A693 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B54FF522EAAD0A80040A02D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,37 +370,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B426A442CBBCC54006F4F23 /* Main.storyboard in Resources */,
-				3B4D53D82C5CD92600A3097D /* Assets.xcassets in Resources */,
-				3B4D53DB2C5CD92600A3097D /* Base in Resources */,
+				3B77C7D42EAACD7C0010D6F7 /* Assets.xcassets in Resources */,
+				3B77C7D82EAACD7C0010D6F7 /* Base in Resources */,
+				3B77C7D72EAACD7C0010D6F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3261A1A259E2F2B79DDF40B9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D7FCC53F24D2F5C947AEC50 /* [CP] Check Pods Manifest.lock */ = {
+		51D735B56029E07E8DA5D6DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -420,6 +401,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB06A17AB20725EADE08A693 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoTrack/Pods-CryptoTrack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -427,6 +425,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B54FF4E2EAAD0A80040A02D /* AppIntent.swift in Sources */,
+				3B54FF4F2EAAD0A80040A02D /* CryptoWidget.swift in Sources */,
+				3B54FF502EAAD0A80040A02D /* CryptoWidgetBundle.swift in Sources */,
+				3B54FF512EAAD0A80040A02D /* CryptoWidgetLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,28 +436,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B8380FC2D9C071500F2222A /* DateManager.swift in Sources */,
-				3BFF15E02C60DD9200BB3B62 /* NetworkManager.swift in Sources */,
-				3B2E43302D9AA4B700EC721A /* CustomXAxisFormatter.swift in Sources */,
-				3B149BDB2CAD36A500169089 /* ChangeCurrencyViewController.swift in Sources */,
-				3B426A3F2CBBBBC9006F4F23 /* SettingsViewController.swift in Sources */,
-				3B0E8BB52CA7057B00049583 /* RealmData.swift in Sources */,
-				3BFF15E42C627EEE00BB3B62 /* ChartsViewController.swift in Sources */,
-				3B5D9BFF2CAD4610007275E9 /* InfoViewController.swift in Sources */,
-				3B4D53D32C5CD92400A3097D /* MainViewController.swift in Sources */,
-				3B149BDD2CAD373200169089 /* ChangeCurrencyTableViewCell.swift in Sources */,
-				3B5D9BFB2CAD4478007275E9 /* CustomPopoverView.swift in Sources */,
-				3BF60DD52DB90418002C50CB /* TextViewController.swift in Sources */,
-				3B4FFE9C2C62820300134466 /* ChartCollectionViewCell.swift in Sources */,
-				3B5D9C012CAD461E007275E9 /* InfoTableViewCell.swift in Sources */,
-				3B5D9C032CAD4EBC007275E9 /* AlertManager.swift in Sources */,
-				3B4D53CF2C5CD92400A3097D /* AppDelegate.swift in Sources */,
-				3BDD3E2E2CABF28000451C1F /* CustomAlertViewController.swift in Sources */,
-				3BC2C98D2C8A00C200457C20 /* GlobalData.swift in Sources */,
-				3BBDDC5A2C85B6E700A6914A /* DetailScreenViewController.swift in Sources */,
-				3B9BBC442C91902000A7C09D /* AlertController.swift in Sources */,
-				3BBE0FA42C728A0F003A4D22 /* CryptoCurrencyType.swift in Sources */,
-				3B4D53D12C5CD92400A3097D /* SceneDelegate.swift in Sources */,
+				3B77C7BE2EAACD7C0010D6F7 /* AlertController.swift in Sources */,
+				3B77C7BF2EAACD7C0010D6F7 /* AlertManager.swift in Sources */,
+				3B77C7C02EAACD7C0010D6F7 /* CustomAlertViewController.swift in Sources */,
+				3B77C7C12EAACD7C0010D6F7 /* ChartCollectionViewCell.swift in Sources */,
+				3B77C7C22EAACD7C0010D6F7 /* ChartsViewController.swift in Sources */,
+				3B77C7C32EAACD7C0010D6F7 /* ChangeCurrencyTableViewCell.swift in Sources */,
+				3B77C7C42EAACD7C0010D6F7 /* ChangeCurrencyViewController.swift in Sources */,
+				3B77C7C52EAACD7C0010D6F7 /* CustomXAxisFormatter.swift in Sources */,
+				3B77C7C62EAACD7C0010D6F7 /* DateManager.swift in Sources */,
+				3B77C7C72EAACD7C0010D6F7 /* DetailScreenViewController.swift in Sources */,
+				3B77C7C82EAACD7C0010D6F7 /* InfoTableViewCell.swift in Sources */,
+				3B77C7C92EAACD7C0010D6F7 /* InfoViewController.swift in Sources */,
+				3B77C7CA2EAACD7C0010D6F7 /* TextViewController.swift in Sources */,
+				3B77C7CB2EAACD7C0010D6F7 /* CryptoCurrencyType.swift in Sources */,
+				3B77C7CC2EAACD7C0010D6F7 /* GlobalData.swift in Sources */,
+				3B77C7CD2EAACD7C0010D6F7 /* NetworkManager.swift in Sources */,
+				3B77C7CE2EAACD7C0010D6F7 /* RealmData.swift in Sources */,
+				3B77C7CF2EAACD7C0010D6F7 /* CustomPopoverView.swift in Sources */,
+				3B77C7D02EAACD7C0010D6F7 /* SettingsViewController.swift in Sources */,
+				3B77C7D12EAACD7C0010D6F7 /* MainViewController.swift in Sources */,
+				3B77C7D22EAACD7C0010D6F7 /* AppDelegate.swift in Sources */,
+				3B77C7D32EAACD7C0010D6F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,10 +472,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3B4D53D92C5CD92600A3097D /* LaunchScreen.storyboard */ = {
+		3B77C7BA2EAACD7C0010D6F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3B4D53DA2C5CD92600A3097D /* Base */,
+				3B77C7B92EAACD7C0010D6F7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -660,7 +662,7 @@
 		};
 		3B4D53E02C5CD92600A3097D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6779AF6C1DEDD3AA2B72DE18 /* Pods-CryptoTrack.debug.xcconfig */;
+			baseConfigurationReference = 61054F244B805D4F628267A5 /* Pods-CryptoTrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -689,7 +691,7 @@
 		};
 		3B4D53E12C5CD92600A3097D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDBFD2DDC552FCAF98A042E7 /* Pods-CryptoTrack.release.xcconfig */;
+			baseConfigurationReference = D01F6BD26E7134258D135F11 /* Pods-CryptoTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
