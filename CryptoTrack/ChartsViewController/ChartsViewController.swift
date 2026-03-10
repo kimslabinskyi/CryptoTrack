@@ -9,13 +9,12 @@ import UIKit
 import Charts
 import CoreHaptics
 
-class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDelegate {
+class ChartsViewController: UIViewController, ChartViewDelegate {
     var hasErrorOccurred = false
     var isInitialLayoutDone = false
     var selectedIndexPath: IndexPath?
     
     private var popover = CustomPopoverView()
-    private let alert = AlertController()
     private let generator = UIImpactFeedbackGenerator(style: .rigid)
 
     
@@ -56,11 +55,15 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
                 }
             }
         }
+        
+        else if segue.identifier == "selectFromCharts" {
+            let destinationVC = segue.destination as! ChangeCurrencyViewController
+            destinationVC.shouldTrimInitialElements = true
+        }
     }
     
     private func setUp(){
         collectionView.delaysContentTouches = false
-        collectionView.backgroundColor = UIColor.systemBackground
         
         let titleLabel = UILabel()
         titleLabel.text = "Crypto Currency Rates"
@@ -131,7 +134,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate, CustomAlertDele
             if self.hasErrorOccurred == false {
                 self.collectionView.reloadData()
             } else {
-                self.alert.showAlert(title: "Error", message: "Failed to load all data from API, please try again later", on: self)
+                self.present(UIAlertController.apiMessage(), animated: true)
             }
         }
     }

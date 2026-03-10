@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoViewController: UIViewController, CustomAlertDelegate {
+class InfoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     // Blockchain, mining, smart contracts

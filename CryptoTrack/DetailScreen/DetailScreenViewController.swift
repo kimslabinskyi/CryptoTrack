@@ -10,7 +10,7 @@ import Charts
 
 
 
-class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAlertDelegate {
+class DetailScreenViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var centralBarView: BarChartView!
     
     @IBOutlet weak var currencyNameLabel: UILabel!
@@ -41,7 +41,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
     }
     
     private var popover = CustomPopoverView()
-    private let alertController = AlertController()
     private let generator = UIImpactFeedbackGenerator(style: .soft)
         
     override func viewDidLoad() {
@@ -50,6 +49,17 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         setUpLabels()
         initChart(daysCount: 31)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "selectFromDetail" {
+//            let destinationVC = segue.destination as! ChangeCurrencyViewController
+//            destinationVC.
+//            
+//            
+//            let shortCurrencyName = cellDataArray[rowIndex].currencyName.dropLast(5)
+//            destinationVC.selectedCurrenciesList = ["\(shortCurrencyName)"]
+//        }
+//    }
     
     private func setUp(){
         centralBarView.delegate = self
@@ -70,7 +80,6 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideChart(_:)))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-        
     }
     
     private func setUpLabels(){
@@ -229,7 +238,8 @@ class DetailScreenViewController: UIViewController, ChartViewDelegate, CustomAle
             print("Empty")
             popover.hide()
             centralBarView.highlightValues(nil)
-            AlertManager.showCustomAlert(on: self, delegate: self)
+            present(UIAlertController.apiMessage(), animated: true)
+
         default:
             break
         }

@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (5.9.1)
+  - Alamofire (5.11.1)
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
-  - Realm (20.0.3):
-    - Realm/Headers (= 20.0.3)
-  - Realm/Headers (20.0.3)
-  - RealmSwift (20.0.3):
-    - Realm (= 20.0.3)
+  - Realm (20.0.4):
+    - Realm/Headers (= 20.0.4)
+  - Realm/Headers (20.0.4)
+  - RealmSwift (20.0.4):
+    - Realm (= 20.0.4)
   - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
@@ -25,12 +25,12 @@ SPEC REPOS:
     - SwiftAlgorithms
 
 SPEC CHECKSUMS:
-  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
   Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
-  Realm: 853e5089d6042dff807bda000277eadfe2da93d2
-  RealmSwift: f33c19577cefcbf681345d721fcbc7b42be4c949
+  Realm: 1fca83c42ac1d5c7767974882c8de5a7abca4d89
+  RealmSwift: 84f36320f6133dea78d05c55bb46bba4387d6828
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
 PODFILE CHECKSUM: 068ce71f747e2f8966e659b05bb102022dc060ef
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

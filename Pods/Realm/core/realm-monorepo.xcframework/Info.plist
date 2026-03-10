@@ -33,12 +33,12 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>ios-arm64_x86_64-simulator</string>
+			<string>ios-x86_64_arm64-simulator</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>x86_64</string></array>
+			<array><string>x86_64</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>ios</string>
 			<key>SupportedPlatformVariant</key>
@@ -48,12 +48,12 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>ios-arm64_x86_64-maccatalyst</string>
+			<string>ios-x86_64_arm64-maccatalyst</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>x86_64</string></array>
+			<array><string>x86_64</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>ios</string>
 			<key>SupportedPlatformVariant</key>
@@ -63,13 +63,13 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>watchos-arm64_armv7k_arm64_32</string>
+			<string>watchos-armv7k_arm64_32_arm64</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>armv7k</string>
-<string>arm64_32</string></array>
+			<array><string>armv7k</string>
+<string>arm64_32</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>watchos</string>
 		</dict>
@@ -77,13 +77,12 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>watchos-arm64_i386_x86_64-simulator</string>
+			<string>watchos-x86_64_arm64-simulator</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>i386</string>
-<string>x86_64</string></array>
+			<array><string>x86_64</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>watchos</string>
 			<key>SupportedPlatformVariant</key>
@@ -105,12 +104,12 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>tvos-arm64_x86_64-simulator</string>
+			<string>tvos-x86_64_arm64-simulator</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>x86_64</string></array>
+			<array><string>x86_64</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>tvos</string>
 			<key>SupportedPlatformVariant</key>
@@ -132,12 +131,12 @@
 			<key>HeadersPath</key>
 			<string>Headers</string>
 			<key>LibraryIdentifier</key>
-			<string>xros-arm64_x86_64-simulator</string>
+			<string>xros-x86_64_arm64-simulator</string>
 			<key>LibraryPath</key>
 			<string>librealm-monorepo.a</string>
 			<key>SupportedArchitectures</key>
-			<array><string>arm64</string>
-<string>x86_64</string></array>
+			<array><string>x86_64</string>
+<string>arm64</string></array>
 			<key>SupportedPlatform</key>
 			<string>xros</string>
 			<key>SupportedPlatformVariant</key>

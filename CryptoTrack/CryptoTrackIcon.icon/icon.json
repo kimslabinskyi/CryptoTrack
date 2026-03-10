@@ -1,0 +1,48 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.24394,0.93456,0.93855,1.00000",
+      "srgb:0.00000,0.47548,0.98919,1.00000"
+    ],
+    "orientation" : {
+      "start" : {
+        "x" : 0.5,
+        "y" : 0
+      },
+      "stop" : {
+        "x" : 0.5,
+        "y" : 0.7
+      }
+    }
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "fill" : {
+            "solid" : "srgb:0.96028,0.98789,1.00000,1.00000"
+          },
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "bitcoin.png",
+          "name" : "bitcoin"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
