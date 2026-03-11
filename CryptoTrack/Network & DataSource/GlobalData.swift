@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Charts
+import DGCharts
 
 struct CellData {
     var typeOfCell: CryptoCurrencyType

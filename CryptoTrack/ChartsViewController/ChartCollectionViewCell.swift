@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Charts
+import DGCharts
 
 class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var centralBarView: BarChartView!
@@ -20,6 +20,11 @@ class ChartCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        guard centralBarView != nil else {
+                print("centralBarView is nil — IBOutlet not connected!")
+                return
+            }
         
         centralBarView.isUserInteractionEnabled = false
         

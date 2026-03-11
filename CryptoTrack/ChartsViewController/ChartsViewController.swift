@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Charts
+import DGCharts
 import CoreHaptics
 
 class ChartsViewController: UIViewController, ChartViewDelegate {

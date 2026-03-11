@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import Charts
-
+import DGCharts
 
 
 class DetailScreenViewController: UIViewController, ChartViewDelegate {

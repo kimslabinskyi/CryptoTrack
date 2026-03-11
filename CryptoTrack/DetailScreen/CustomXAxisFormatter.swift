@@ -4,7 +4,8 @@
 //
 //  Created by Kim on 31.03.2025.
 //
-import Charts
+import DGCharts
+import ObjectiveC
 
 class CustomXAxisFormatter: NSObject, AxisValueFormatter {
     private let labels: [String]
