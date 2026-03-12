@@ -195,9 +195,9 @@
 		3B77C7AA2EAACD7C0010D6F7 /* InfoViewController */ = {
 			isa = PBXGroup;
 			children = (
-				69912B9E2F61760D00375102 /* TextViewController.swift */,
 				3B77C7A82EAACD7C0010D6F7 /* InfoViewController.swift */,
 				3B77C7A72EAACD7C0010D6F7 /* InfoTableViewCell.swift */,
+				69912B9E2F61760D00375102 /* TextViewController.swift */,
 			);
 			path = InfoViewController;
 			sourceTree = "<group>";

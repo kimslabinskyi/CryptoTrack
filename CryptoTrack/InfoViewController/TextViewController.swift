@@ -21,6 +21,8 @@ class TextViewController: UIViewController {
     let data = [""]
 
     @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var segmentController: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false
@@ -28,6 +30,7 @@ class TextViewController: UIViewController {
         textView.isSelectable = false
         textView.isUserInteractionEnabled = false
         print("indexPath = \(String(describing: indexPath)), rowIndex = \(rowIndex)")
+        segmentController.selectedSegmentIndex = 2
         
         if sectionIndex == 0 {
             switch rowIndex {
@@ -199,8 +202,36 @@ class TextViewController: UIViewController {
         }
 
     }
-
     
+    
+    private let generator = UIImpactFeedbackGenerator(style: .soft)
+    
+    private func doHapticFeedback(){
+        if SettingsViewController.isHapticFeedbackEnabled == true {
+            generator.impactOccurred()
+        }
+    }
 
+    @IBAction func segmentSwitched(_ sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+        doHapticFeedback()
+        
+        switch selectedIndex{
+        case 0:
+            textView.font = UIFont.systemFont(ofSize: 14)
+        case 1:
+            textView.font = UIFont.systemFont(ofSize: 16)
+        case 2:
+            textView.font = UIFont.systemFont(ofSize: 18)
+        case 3:
+            textView.font = UIFont.systemFont(ofSize: 20)
+        default:
+            break
+            
+        }
+        
+    }
+    
+    
 
 }

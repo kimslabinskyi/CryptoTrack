@@ -18,8 +18,8 @@ class InfoViewController: UIViewController {
                  "How cryptocurrency markets work?",
                  "Understanding market volatility"
                 ], [
-                    "Choose a reputable cryptocurrency exchange",
-                    "Create and secure your trading account",
+                    "Choose a reputable crypto exchange",
+                    "Create & secure your trading account",
                     "Deposit funds to your account"
                 ], [
                     "Trading pairs explained",
@@ -42,7 +42,7 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.showsVerticalScrollIndicator = false
     }
     
     func customAlertAction() {
@@ -72,15 +72,12 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
         cell.centralText.text = list[indexPath.section][indexPath.row]
         cell.layer.masksToBounds = true
         cell.selectionStyle = .none
-        
-        let cornerRadius: CGFloat = 15.0
+        cell.layer.cornerRadius = 32.0
         
         if indexPath.row == 0 {
-            cell.layer.cornerRadius = cornerRadius
             cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
         else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            cell.layer.cornerRadius = cornerRadius
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         } else {
             cell.layer.cornerRadius = 0
@@ -98,6 +95,22 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
         58
     }
     
+    //MARK: Header
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.frame = CGRect(x: 20, y: 8, width: 320, height: 20)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.textColor = .systemGray
+        label.text = self.tableView(tableView, titleForHeaderInSection: section)
+
+        
+        let headerView = UIView()
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         30
     }
@@ -107,6 +120,16 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
         return sectionNames[section]
     }
     
+    //MARK: Footer
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+            let footerView = UIView()
+            footerView.backgroundColor = view.backgroundColor
+            return footerView
+        }
+        
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        15
+    }
     
 }
