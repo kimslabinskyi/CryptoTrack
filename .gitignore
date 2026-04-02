@@ -98,4 +98,16 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+# macOS System Files
+#
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Crash logs
+*.crash
+
+# SPM User settings (на всякий случай, скрывает личные настройки Xcode внутри SPM)
+.swiftpm/xcode/xcuserdata/
+
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift

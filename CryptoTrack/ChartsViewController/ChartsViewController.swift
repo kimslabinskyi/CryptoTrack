@@ -283,18 +283,37 @@ extension ChartsViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension ChartsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 340
-        let height = 325
-        return CGSize(width: width, height: height)
+        let spacing: CGFloat = 10
+        let inset: CGFloat = 10
+        let availableWidth = collectionView.bounds.width - (inset * 2)
+        
+        let columns: CGFloat
+        if availableWidth >= 700 {
+            columns = 2
+        } else {
+            columns = 1
+        }
+        
+        let totalSpacing = spacing * (columns - 1)
+        let cellWidth = floor((availableWidth - totalSpacing) / columns)
+        let cellHeight = cellWidth * (325.0 / 340.0)
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        return sectionInsets
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { 10 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { 25 }
- 
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+
 }
