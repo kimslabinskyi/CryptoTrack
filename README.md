@@ -3,6 +3,12 @@
 A clean, intuitive, and highly responsive iOS application for tracking cryptocurrency prices.
 Inspired by Apple's Human Interface Guidelines.
 
+<img width="1080" height="1350" alt="561_1x_shots_so" src="https://github.com/user-attachments/assets/6ddd4942-b99b-43ef-b042-bc7e1edb0170" />
+<img width="1080" height="1350" alt="139_1x_shots_so" src="https://github.com/user-attachments/assets/cbcf07a5-fb1a-496c-b544-ebbc6c8eeea3" />
+<img width="1080" height="1350" alt="101_1x_shots_so" src="https://github.com/user-attachments/assets/4463eac4-ef3f-45b7-86ec-8f9042b1914e" />
+<img width="1080" height="1350" alt="959_1x_shots_so" src="https://github.com/user-attachments/assets/757ac587-c5c2-44ee-a6d1-8e4ae144ef35" />
+
+
 ## ✨ Key Features
 
 * **Interactive Price Charts:** Scalable and interactive line charts displaying up to 365 days of historical data.
@@ -43,11 +49,17 @@ The primary goal of this project was to build a production-ready application wit
 
 5. Build and run the project (Cmd + R). 
 
-🔮 Future Roadmap
-[ ] Refactor and expand SwiftUI Widgets.
+## 🔮 Future Roadmap
 
-[ ] Implement Combine or async/await for network calls.
+**Technical Improvements** 
+- [ ] Implement Combine or async/await for network calls.
+- [ ] Migrate architecture from MVC to MVVM.
+- [ ] Set up CI/CD pipeline using GitHub Actions.
 
-[ ] Add application for Apple Watch. 
+**Features**
+- [ ] Refactor and expand SwiftUI Widgets.
+- [ ] Support multiple fiat currencies (USD, EUR, PLN, etc.).
 
-Designed and developed by **Kim Slabinskyi**
+--- 
+
+*Designed and developed by **Kim Slabinskyi***
