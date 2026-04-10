@@ -39,7 +39,7 @@ The primary goal of this project was to build a production-ready application wit
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/kimslabinskyi/CryptoTrack.git](https://github.com/kimslabinskyi/CryptoTrack.git)
+   git clone https://github.com/kimslabinskyi/CryptoTrack.git
    
 2. Make sure you have the latest version of Xcode installed.
 
